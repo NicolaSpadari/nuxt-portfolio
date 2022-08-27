@@ -8,7 +8,7 @@
                 :animate="{ opacity: 1, scale: 1, transition: { delay: 0.1 } }"
                 :exit="{ opacity: 0, scale: 0.85 }"
             >
-                <img v-if="!props.active" :src="props.item.image.url" max-h-20>
+                <img v-if="!props.active" :src="props.item.image" max-h-20>
                 <div v-else divide-y-3 divide-light-50 size-full p-7>
                     <p text-light-50 text-6xl font-extralight font-heading mb-3>
                         {{ position }}

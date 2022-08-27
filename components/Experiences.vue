@@ -20,11 +20,11 @@
                                 {{ experience.title }}
                             </p>
                             <p leading-6 font-heading text-slate-400 ml-auto tracking-wider>
-                                {{ experience.date }}
+                                {{ getDate(experience.date) }}
                             </p>
                         </div>
-                        <p v-for="(detail, dIndex) in experience.details" :key="`detail-${dIndex}`" text-gray-400 text-sm mt-2>
-                            {{ detail }}
+                        <p v-for="(exp, index) in experience.details" :key="index" text-gray-400 text-sm mt-2>
+                            {{ exp }}
                         </p>
                     </div>
                 </Animation>
@@ -64,29 +64,12 @@
 </template>
 
 <script lang="ts" setup>
-    const experiences = [
-        {
-            title: "Diploma as computer technician",
-            date: "07/2017",
-            details: [
-                "At ITT Michelangelo Buonarroti - Pozzo, Trento (Italia)"
-            ]
-        },
-        {
-            title: "Work experience in Wolverhampton",
-            date: "09/2017",
-            details: [
-                "Internship organized by the province of Trento, lasted 3 months",
-                "Developing of website and small custom admin panel for Starworks Warehouse, made with Bootstrap"
-            ]
-        },
-        {
-            title: "Frontend Engineer at Suggesto",
-            date: "04/2018",
-            details: [
-                "Career start as frontend engineer",
-                "Using techologies like Liferay and Vue, creating tourism oriented portals"
-            ]
-        }
-    ];
+    const { data: experiences } = await useFetch("/api/experiences");
+
+    const getDate = (date: string) => {
+        const month = String(new Date(date).getMonth() + 1).padStart(2, "0");
+        const year = new Date(date).getFullYear();
+
+        return `${month}/${year}`;
+    }
 </script>

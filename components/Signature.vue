@@ -113,26 +113,16 @@
         "ended"
     ]);
 
-    const isDev = ref(false);
+    const isDev = process.dev;
 
-    if (import.meta.hot) {
-        isDev.value = true;
-    }
-
-    const letter1 = useLetter(1);
-    const letter2 = useLetter(2);
-    const letter3 = useLetter(3);
-    const letter4 = useLetter(4);
-    const letter5 = useLetter(5);
-    const letter6 = useLetter(6);
-    const letter7 = useLetter(7);
+    const { letter1, letter2, letter3, letter4, letter5, letter6, letter7 } = useLetter();
 
     const draw = (progress: number): object => ({
         strokeDashoffset: 1 - progress,
         visibility: "visible"
     });
 
-    if (isDev.value) {
+    if (isDev) {
         emits("ended");
     } else {
         setTimeout(() => {

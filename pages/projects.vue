@@ -22,6 +22,7 @@
 
 <script lang="ts" setup>
     import type { Project } from "@/types";
+
     const { data: projects } = await useFetch("/api/projects");
 
     const carousel = ref<HTMLElement | null>(null);

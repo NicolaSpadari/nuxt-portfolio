@@ -4,27 +4,35 @@ export default defineNuxtConfig({
     modules: ["@vueuse/nuxt", "@unocss/nuxt", "@nuxt/image-edge"],
     runtimeConfig: {
         public: {
-            strapiUrl: process.env.STRAPI_URL,
-            telegramBotUrl: process.env.TELEGRAM_BOT_URL,
+            telegramBotId: process.env.TELEGRAM_BOT_ID,
             telegramChatId: process.env.TELEGRAM_CHAT_ID
         }
     },
     unocss: {
         preflight: true
     },
-    meta: {
-        title: "Nicola Spadari",
-        meta: [
-            { charset: "utf-8" },
-            { name: "viewport", content: "width=device-width, initial-scale=1" },
-            { name: "theme-color", content: "#181818" },
-            { name: "format-detection", content: "no" }
-        ],
-        link: [
-            { rel: "shortcut-icon", href: "/favicon.ico" }
-        ],
-        htmlAttrs: {
-            lang: "en"
+    app: {
+        head: {
+            title: "Nicola Spadari",
+            meta: [
+                { charset: "utf-8" },
+                { name: "viewport", content: "width=device-width, initial-scale=1" },
+                { name: "theme-color", content: "#181818" },
+                { name: "format-detection", content: "no" }
+            ],
+            link: [
+                { rel: "shortcut-icon", href: "/favicon.ico" }
+            ],
+            htmlAttrs: {
+                lang: "en",
+                dir: "ltr"
+            }
         }
+    },
+    build: {
+        transpile: [
+            "motion/vue",
+            "@motionone/vue"
+        ]
     }
 });

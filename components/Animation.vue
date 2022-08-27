@@ -20,7 +20,7 @@
     });
 
     const show = ref(false);
-    const element = ref<HTMLElement>();
+    const element = ref<HTMLElement | null>(null);
 
     useIntersection(element, () => {
         show.value = true;
