@@ -1,5 +1,5 @@
 <template>
-    <div ref="comp" relative flex-shrink-0 snap-start snap-always p-10 class="animated-border group">
+    <div ref="comp" flex-shrink-0 snap-start snap-always p-10 class="animated-border group">
         <NuxtLink :to="props.item.link">
             <img :src="props.item.image" :alt="props.item.title" rounded-lg />
         </NuxtLink>
@@ -29,15 +29,12 @@
 
 <style lang="scss" scoped>
     .animated-border{
-        @apply z-0 m-20px rounded-lg overflow-hidden p-6px;
+        @apply relative z-0 m-20px rounded-lg overflow-hidden p-6px;
+    }
 
-        &:before,
-        &:after{
-            @apply content-empty absolute;
-        }
-
+    .animated-border{
         &:before{
-            @apply transition-opacity duration-500 opacity-0 z--2 left--50% top--50% w-200% h-200%;
+            @apply content-empty absolute transition-opacity duration-500 opacity-0 z--2 left--50% top--50% w-200% h-200%;
             background-repeat: no-repeat;
             background-position: 0 0;
             background-image: conic-gradient(transparent, theme("colors.green.300"), theme("colors.teal.300"), transparent 30%);
@@ -45,7 +42,7 @@
         }
 
         &:after{
-            @apply z--1 left-6px top-6px rounded-5px;
+            @apply content-empty absolute z--1 left-6px top-6px rounded-5px;
             width: calc(100% - 12px);
             height: calc(100% - 12px);
         }
