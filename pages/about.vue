@@ -1,5 +1,5 @@
 <template>
-    <div ref="element" relative h-screen max-w-screen overflow-x-hidden class="custom-scrollbar">
+    <PageWrapper ref="element" h-screen max-w-screen overflow-x-hidden class="custom-scrollbar">
         <StructurePageTitle right-8 />
 
         <div min-h-150vh>
@@ -64,16 +64,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </PageWrapper>
 </template>
 
 <script lang="ts" setup>
     import type { Competence as C } from "@/types";
-    
+
     definePageMeta({
-        pageTransition: {
-            name: "page"
-        }
+        layout: "page"
     });
 
     const { data: competences } = await useFetch("/api/competences");

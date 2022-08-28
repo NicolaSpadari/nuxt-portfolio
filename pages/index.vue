@@ -1,5 +1,5 @@
 <template>
-    <div relative h-screen overflow-hidden z-5>
+    <PageWrapper h-screen overflow-hidden z-5>
         <div flex justify-center h-full p-8 lg="p-16">
             <div w-75vw relative my-auto :style="imageEffect">
                 <Parallax relative lg="w-screen-xs mx-auto" h-125 />
@@ -34,14 +34,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </PageWrapper>
 </template>
 
 <script lang="ts" setup>
     definePageMeta({
-        pageTransition: {
-            name: "page"
-        }
+        layout: "page"
     });
 
     const { x, y } = useMouse({ touch: false });

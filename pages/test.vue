@@ -1,6 +1,6 @@
 <template>
-    <div relative h-screen>
-        <div id="container">
+    <PageWrapper h-screen>
+        <div id="crate">
             <span ref="txt1" text-white>
                 {{ text1 }}
             </span>
@@ -23,7 +23,7 @@
                 </filter>
             </defs>
         </svg>
-    </div>
+    </PageWrapper>
 </template>
 
 <script lang="ts" setup>
@@ -116,7 +116,7 @@
 </script>
 
 <style lang="scss" scoped>
-    #container {
+    #crate {
         @apply absolute m-auto w-screen h-80pt inset-y-0;
         filter: url(#threshold) blur(0.6px);
 

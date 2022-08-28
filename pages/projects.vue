@@ -1,5 +1,5 @@
 <template>
-    <div relative>
+    <PageWrapper>
         <StructurePageTitle left-8 />
 
         <div container lg="max-w-screen" h-screen flex items-center>
@@ -17,16 +17,14 @@
                 {{ activeProject.title }}
             </p>
         </Transition>
-    </div>
+    </PageWrapper>
 </template>
 
 <script lang="ts" setup>
     import type { Project } from "@/types";
-    
+
     definePageMeta({
-        pageTransition: {
-            name: "page"
-        }
+        layout: "page"
     });
 
     const { data: projects } = await useFetch("/api/projects");

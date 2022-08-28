@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <Body font-text overflow-hidden bg-dark-800 transition-colors duration-500>
         <Disappear
             size-screen bg-dark-800 fixed inset-0 flex items-center justify-center z-100
             :state="splash"
@@ -21,12 +21,11 @@
         </Disappear>
 
         <div v-show="ready" overflow-y-hidden>
-            <StructureNavigation />
-            <NuxtPage />
-            <Waves bottom="0" md="-bottom-10" xl="-bottom-20" />
-            <Noise />
+            <NuxtLayout>
+                <NuxtPage />
+            </NuxtLayout>
         </div>
-    </div>
+    </Body>
 </template>
 
 <script lang="ts" setup>
@@ -62,9 +61,6 @@
     html {
         -webkit-tap-highlight-color: transparent;
         scroll-behavior: smooth;
-    }
-    body {
-        @apply font-text overflow-hidden bg-dark-800 transition-colors duration-500;
     }
     img {
         -webkit-user-drag: none;
