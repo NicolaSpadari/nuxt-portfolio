@@ -36,7 +36,7 @@
                         :final="{ opacity: 1 }"
                         max-w-5xl flex justify-center lg="justify-end mt-0" xl="max-w-full" animate-bounce mt-20
                     >
-                        <img src="assets/images/arrow.svg" h-15 lg="h-32" />
+                        <img src="assets/images/arrow.svg" h-15 lg="h-32">
                     </Animation>
                 </div>
 
@@ -69,10 +69,6 @@
 
 <script lang="ts" setup>
     import type { Competence as C } from "@/types";
-
-    definePageMeta({
-        layout: "page"
-    });
 
     const { data: competences } = await useFetch("/api/competences");
 

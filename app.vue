@@ -20,7 +20,7 @@
             </Disappear>
         </Disappear>
 
-        <div v-show="ready" overflow-y-hidden>
+        <div v-show="ready" overflow-y-hidden class="page-content">
             <NuxtLayout>
                 <NuxtPage />
             </NuxtLayout>

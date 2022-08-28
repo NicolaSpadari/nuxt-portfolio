@@ -23,10 +23,6 @@
 <script lang="ts" setup>
     import type { Project } from "@/types";
 
-    definePageMeta({
-        layout: "page"
-    });
-
     const { data: projects } = await useFetch("/api/projects");
 
     const carousel = ref<HTMLElement | null>(null);
