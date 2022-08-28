@@ -7,7 +7,7 @@
         </div>
 
         <div absolute flex justify-center w-full top-16 :style="titleEffect">
-            <NuxtImg src="/images/signature-static.svg" w-30 />
+            <img src="assets/images/signature-static.svg" w-30 />
         </div>
 
         <div absolute flex justify-center w-full h-full inset-0 :style="textEffect">

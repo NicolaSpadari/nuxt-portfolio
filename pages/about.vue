@@ -36,7 +36,7 @@
                         :final="{ opacity: 1 }"
                         max-w-5xl flex justify-center lg="justify-end mt-0" xl="max-w-full" animate-bounce mt-20
                     >
-                        <NuxtImg src="/icons/arrow.svg" h-15 lg="h-32" />
+                        <img src="assets/images/arrow.svg" h-15 lg="h-32" />
                     </Animation>
                 </div>
 
