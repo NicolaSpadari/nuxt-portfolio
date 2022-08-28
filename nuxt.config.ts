@@ -1,7 +1,7 @@
 import { defineNuxtConfig } from "nuxt";
 
 export default defineNuxtConfig({
-    modules: ["@vueuse/nuxt", "@unocss/nuxt"],
+    modules: ["@vueuse/nuxt", ["@unocss/nuxt", { treeShake: false }]],
     runtimeConfig: {
         public: {
             telegramBotId: process.env.TELEGRAM_BOT_ID,

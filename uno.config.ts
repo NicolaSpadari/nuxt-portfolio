@@ -19,9 +19,6 @@ export default defineConfig({
         ["absolute-center-h", "left-50% transform -translate-x-50%"],
         ["absolute-center-v", "top-50% transform -translate-y-50%"]
     ],
-    // rules: [
-    //     ["bg-noise", { "background-image": "url('./assets/images/noise.jpg')" }]
-    // ],
     presets: [
         presetUno(),
         presetTagify(),
