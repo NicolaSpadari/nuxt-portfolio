@@ -1,5 +1,5 @@
 <template>
-    <div ref="comp" animated-border flex-shrink-0 snap-start snap-always p-10 class="group">
+    <div ref="comp" relative flex-shrink-0 snap-start snap-always p-10 class="animated-border group">
         <NuxtLink :to="props.item.link">
             <img :src="props.item.image" :alt="props.item.title" rounded-lg />
         </NuxtLink>
@@ -28,8 +28,8 @@
 </script>
 
 <style lang="scss" scoped>
-    [animated-border]{
-        @apply relative z-0 m-20px rounded-lg overflow-hidden p-6px;
+    .animated-border{
+        @apply z-0 m-20px rounded-lg overflow-hidden p-6px;
 
         &:before,
         &:after{
