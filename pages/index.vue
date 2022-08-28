@@ -38,6 +38,12 @@
 </template>
 
 <script lang="ts" setup>
+    definePageMeta({
+        pageTransition: {
+            name: "page"
+        }
+    });
+
     const { x, y } = useMouse({ touch: false });
 
     const textEffect = computed(() => ({

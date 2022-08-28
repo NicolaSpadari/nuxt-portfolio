@@ -22,6 +22,12 @@
 
 <script lang="ts" setup>
     import type { Project } from "@/types";
+    
+    definePageMeta({
+        pageTransition: {
+            name: "page"
+        }
+    });
 
     const { data: projects } = await useFetch("/api/projects");
 

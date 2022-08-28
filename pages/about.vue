@@ -69,6 +69,12 @@
 
 <script lang="ts" setup>
     import type { Competence as C } from "@/types";
+    
+    definePageMeta({
+        pageTransition: {
+            name: "page"
+        }
+    });
 
     const { data: competences } = await useFetch("/api/competences");
 
