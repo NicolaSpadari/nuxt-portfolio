@@ -21,7 +21,7 @@
         "@vueuse/core": "^9.1.1",
         "@vueuse/nuxt": "^9.1.1",
         "eslint": "^8.23.0",
-        "nuxt": "^3.0.0-rc.8",
+        "nuxt": "^3.0.0-rc.9",
         "prisma": "^4.2.1",
         "sass": "^1.54.5",
         "unocss-preset-scrollbar": "^0.2.1"
