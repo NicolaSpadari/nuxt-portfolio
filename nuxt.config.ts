@@ -27,14 +27,6 @@ export default defineNuxtConfig({
                 lang: "en",
                 dir: "ltr"
             }
-        },
-        pageTransition: {
-            name: "page",
-            mode: "out-in",
-            enterActiveClass: "transition-opacity duration-1000 ease-linear opacity-100",
-            leaveActiveClass: "transition-opacity duration-1000 ease-linear opacity-100",
-            enterFromClass: "opacity-0",
-            leaveToClass: "opacity-0"
         }
     },
     build: {
@@ -42,5 +34,9 @@ export default defineNuxtConfig({
             "motion/vue",
             "@motionone/vue"
         ]
+    },
+    typescript: {
+        shim: false,
+        strict: true
     }
 });

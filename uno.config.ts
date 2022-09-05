@@ -13,13 +13,6 @@ import {
 import { presetScrollbar } from "unocss-preset-scrollbar";
 
 export default defineConfig({
-    safelist: [
-        "duration-1000",
-        "transition-opacity",
-        "ease-linear",
-        "opacity-0",
-        "opacity-100"
-    ],
     shortcuts: [
         ["size-full", "w-full h-full"],
         ["size-screen", "w-screen h-screen"],

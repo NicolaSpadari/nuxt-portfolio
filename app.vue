@@ -1,5 +1,5 @@
 <template>
-    <Body font-text overflow-hidden bg-dark-800 transition-colors duration-500>
+    <Body font-text overflow-hidden bg-dark-800>
         <Disappear
             size-screen bg-dark-800 fixed inset-0 flex items-center justify-center z-100
             :state="splash"
@@ -20,7 +20,7 @@
             </Disappear>
         </Disappear>
 
-        <div v-show="ready" overflow-y-hidden class="page-content">
+        <div v-show="ready" overflow-y-hidden>
             <NuxtLayout>
                 <NuxtPage />
             </NuxtLayout>
@@ -94,11 +94,11 @@
 
     .page-enter-active,
     .page-leave-active {
-        @apply transition-opacity duration-1000 ease-linear opacity-100;
+        transition: opacity 1s linear;
     }
 
     .page-enter-from,
     .page-leave-to {
-        @apply opacity-0;
+        opacity: 0;
     }
 </style>
