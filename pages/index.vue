@@ -38,32 +38,18 @@
 </template>
 
 <script lang="ts" setup>
-    import type { UseMouseReturn } from "@vueuse/core";
-
-    const coords = reactive<UseMouseReturn>({
-        x: ref(0),
-        y: ref(0),
-        sourceType: ref("mouse")
-    });
-
-    useTimeoutFn(() => {
-        coords.x = useMouse({ touch: false }).x;
-        coords.y = useMouse({ touch: false }).y;
-    }, 3700);
+    const { x, y } = useMouse({ touch: false })
 
     const textEffect = computed(() => ({
-        transform: `translateX(${coords.x / 45}px) translateY(-${coords.y / 45}px)`,
-        transition: ".3s ease-out all"
+        transform: `translateX(${x.value / 45}px) translateY(-${y.value / 45}px)`
     }));
 
     const titleEffect = computed(() => ({
-        transform: `translateX(${coords.x / 100}px) translateY(-${coords.y / 100}px)`,
-        transition: ".3s ease-out all"
+        transform: `translateX(${x.value / 100}px) translateY(-${y.value / 100}px)`
     }));
 
     const imageEffect = computed(() => ({
-        transform: `translateX(-${coords.x / 50}px) translateY(${coords.y / 50}px)`,
-        transition: ".3s ease-out all"
+        transform: `translateX(-${x.value / 50}px) translateY(${y.value / 50}px)`
     }));
 </script>
 
