@@ -50,5 +50,5 @@
         const year = new Date(date).getFullYear();
 
         return `${month}/${year}`;
-    }
+    };
 </script>

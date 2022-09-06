@@ -1,7 +1,7 @@
 <template>
     <div ref="comp" flex-shrink-0 snap-start snap-always p-10 class="animated-border group">
         <NuxtLink :to="props.item.link">
-            <img :src="props.item.image" :alt="props.item.title" rounded-lg />
+            <img :src="props.item.image" :alt="props.item.title" rounded-lg>
         </NuxtLink>
     </div>
 </template>

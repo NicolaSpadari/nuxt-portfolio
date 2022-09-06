@@ -212,5 +212,5 @@ export const useLetter = () => {
         letter5,
         letter6,
         letter7
-    }
+    };
 };

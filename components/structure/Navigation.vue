@@ -41,7 +41,7 @@
                     :exit="{ opacity: 0 }"
                 >
                     <NuxtLink to="/">
-                        <img src="assets/images/signature-static.svg" transition-opacity duration-500 hover="opacity-70" w-25 />
+                        <img src="assets/images/signature-static.svg" transition-opacity duration-500 hover="opacity-70" w-25>
                     </NuxtLink>
                 </Motion>
             </Presence>

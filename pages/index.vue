@@ -7,10 +7,10 @@
         </div>
 
         <div absolute flex justify-center w-full top-16 :style="titleEffect">
-            <img src="assets/images/signature-static.svg" w-30 />
+            <img src="assets/images/signature-static.svg" w-30>
         </div>
 
-        <div absolute flex justify-center w-full h-full inset-0 :style="textEffect">
+        <div absolute flex justify-center w-full h-full inset-0 pointer-events-none :style="textEffect">
             <div overflow-y-hidden my-auto>
                 <div select-none flex flex-col lg="flex-row space-x-12" font-heading text-light-50 transition-colors duration-500 bordered font-extralight uppercase tracking-widest justify-center>
                     <Animation
@@ -38,22 +38,36 @@
 </template>
 
 <script lang="ts" setup>
-    const { x, y } = useMouse({ touch: false });
+    import type { UseMouseReturn } from "@vueuse/core";
+
+    const coords = reactive<UseMouseReturn>({
+        x: ref(0),
+        y: ref(0),
+        sourceType: ref("mouse")
+    });
+
+    useTimeoutFn(() => {
+        coords.x = useMouse({ touch: false }).x;
+        coords.y = useMouse({ touch: false }).y;
+    }, 3700);
 
     const textEffect = computed(() => ({
-        transform: `translateX(${x.value / 45}px) translateY(-${y.value / 45}px)`
+        transform: `translateX(${coords.x / 45}px) translateY(-${coords.y / 45}px)`,
+        transition: ".3s ease-out all"
     }));
 
     const titleEffect = computed(() => ({
-        transform: `translateX(${x.value / 100}px) translateY(-${y.value / 100}px)`
+        transform: `translateX(${coords.x / 100}px) translateY(-${coords.y / 100}px)`,
+        transition: ".3s ease-out all"
     }));
 
     const imageEffect = computed(() => ({
-        transform: `translateX(-${x.value / 50}px) translateY(${y.value / 50}px)`
+        transform: `translateX(-${coords.x / 50}px) translateY(${coords.y / 50}px)`,
+        transition: ".3s ease-out all"
     }));
 </script>
 
-<style scoped>
+<style>
     .clamp{
         font-size: clamp(3rem, 8vw, 10rem);
     }

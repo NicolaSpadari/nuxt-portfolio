@@ -48,10 +48,10 @@
         opacity: 0
     };
 
-    const ended = (): void => {
+    const ended = () => {
         splash.value = false;
 
-        setTimeout(() => {
+        useTimeoutFn(() => {
             ready.value = true;
         }, 500);
     };
