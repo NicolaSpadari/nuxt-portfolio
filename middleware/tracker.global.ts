@@ -1,5 +1,5 @@
 export default defineNuxtRouteMiddleware(async (to) => {
-    if (!process.dev) {
+    if (false) {
         const location = await useLocation();
         const { sendMessage } = useMessage();
 
