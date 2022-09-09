@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-    const { x, y } = useMouse({ touch: false })
+    const { x, y } = useMouse({ touch: false });
 
     const textEffect = computed(() => ({
         transform: `translateX(${x.value / 45}px) translateY(-${y.value / 45}px)`

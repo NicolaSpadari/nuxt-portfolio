@@ -1,5 +1,5 @@
 <template>
-    <div pointer-events="none" absolute inset="x-0" z="10">
+    <div pointer-events="none" absolute z-4 inset="x-0" z="10">
         <svg viewBox="0 0 120 28">
             <Motion
                 tag="path"

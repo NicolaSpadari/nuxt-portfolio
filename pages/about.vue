@@ -5,7 +5,7 @@
         <div ref="element" h-screen max-w-screen overflow-x-hidden class="custom-scrollbar">
             <div min-h-150vh>
                 <div container mt-60 uw="mt-80">
-                    <div :style="isMobile ? mobilePStyle : pStyle">
+                    <div pointer-events-none :style="isMobile ? mobilePStyle : pStyle">
                         <div overflow-hidden :style="firstTextEffect">
                             <Animation
                                 tag="p"
