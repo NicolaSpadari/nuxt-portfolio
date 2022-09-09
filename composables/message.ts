@@ -3,7 +3,7 @@ import type { IpLocation } from "@/types";
 export const useMessage = () => {
     const sendMessage = async (page: string, location: IpLocation) => {
         const runtimeConfig = useRuntimeConfig();
-        const botId = runtimeConfig.telegramBotUrl;
+        const botId = runtimeConfig.telegramBotId;
         const chatId = runtimeConfig.telegramChatId;
 
         const encMsg = encodeURIComponent(`
