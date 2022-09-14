@@ -1,5 +1,3 @@
-import { defineNuxtConfig } from "nuxt";
-
 export default defineNuxtConfig({
     modules: ["@vueuse/nuxt", "@unocss/nuxt"],
     runtimeConfig: {
@@ -28,12 +26,6 @@ export default defineNuxtConfig({
                 dir: "ltr"
             }
         }
-    },
-    build: {
-        transpile: [
-            "motion/vue",
-            "@motionone/vue"
-        ]
     },
     typescript: {
         shim: false,

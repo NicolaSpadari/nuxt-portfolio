@@ -32,7 +32,7 @@
                                 </template>
                             </p>
                         </div>
-                        <p v-for="(exp, index) in experience.details" :key="index" text-gray-400 text-sm mt-2>
+                        <p v-for="(exp, expIndex) in experience.details" :key="expIndex" text-gray-400 text-sm mt-2>
                             {{ exp }}
                         </p>
                     </div>
