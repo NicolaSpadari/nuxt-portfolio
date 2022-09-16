@@ -10,7 +10,7 @@
             >
                 <ProjectCard v-for="item in projects" :key="item.id" :item="item" @hovered="showTitle" />
 
-                <svg id="filter-wrapper" viewBox="0 -13 100 37" preserveAspectRatio="xMinYMid meet">
+                <svg id="filter-wrapper" viewBox="0 -13 100 50" preserveAspectRatio="xMinYMid meet">
                     <defs>
                         <filter id="gooey">
                             <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur" />
