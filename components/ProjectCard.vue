@@ -1,5 +1,5 @@
 <template>
-    <div ref="comp" flex-shrink-0 snap-start snap-always p-10 class="animated-border group">
+    <div ref="comp" flex-shrink-0 snap-start snap-always p-10 class="project animated-border group">
         <NuxtLink :to="props.item.link">
             <img :src="props.item.image" :alt="props.item.title" rounded-lg>
         </NuxtLink>
@@ -13,17 +13,19 @@
         item: Project
     }>();
 
-    const emits = defineEmits(["hovered"]);
+    const emit = defineEmits(["hovered"]);
 
     const comp = ref<HTMLElement>();
     const { isOutside } = useMouseInElement(comp);
 
     const setActive = (item: Project | null) => {
-        emits("hovered", item);
+        emit("hovered", item);
     };
 
     watch(isOutside, (outside) => {
-        !outside ? setActive(props.item) : setActive(null);
+        if (!outside) {
+            setActive(props.item);
+        }
     });
 </script>
 
