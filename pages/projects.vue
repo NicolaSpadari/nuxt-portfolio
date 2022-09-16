@@ -26,7 +26,7 @@
                     </defs>
                     <g>
                         <text id="text1" x="0" y="15">Hover a project</text>
-                        <text id="text2" ref="text" x="0" y="15">{{ activeProject?.title || "VivoCasa" }}</text>
+                        <text id="text2" x="0" y="15">{{ activeProject?.title || "VivoCasa" }}</text>
                     </g>
                 </svg>
             </div>
@@ -72,10 +72,10 @@
 
     .project:hover ~ #filter-wrapper{
         #text1{
-            @apply opacity-0;
+            opacity: 0;
         }
         #text2{
-            @apply opacity-100;
+            opacity: 1;
         }
     }
 
@@ -93,7 +93,7 @@
         }
 
         #text2{
-            @apply opacity-0;
+            opacity: 0;
         }
     }
 </style>
