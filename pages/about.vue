@@ -14,7 +14,7 @@
                                 :final="{ opacity: 1, y: 0 }"
                                 text-light-50 transition-colors duration-500 text-5xl lg="text-8xl" xxl="text-10rem" font-bold uppercase
                             >
-                                Frontend
+                                I'm a frontend
                             </Animation>
                         </div>
                         <div overflow-hidden :style="secondTextEffect">
