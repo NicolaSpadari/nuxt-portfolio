@@ -2,8 +2,8 @@
     <PageWrapper>
         <StructurePageTitle right-8 />
 
-        <div ref="element" h-screen max-w-screen overflow-x-hidden class="custom-scrollbar">
-            <div min-h-150vh>
+        <div ref="element" h-screen max-w-screen class="custom-scrollbar">
+            <div min-h-150vh overflow-x-hidden>
                 <div container mt-60 uw="mt-80">
                     <div pointer-events-none :style="isMobile ? mobilePStyle : pStyle">
                         <div overflow-hidden :style="firstTextEffect">

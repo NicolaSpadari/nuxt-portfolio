@@ -10,9 +10,12 @@
             >
                 <img v-if="!props.active" :src="props.item.image" max-h-20>
                 <div v-else divide-y-3 divide-light-50 size-full p-7>
-                    <p text-light-50 text-6xl font-extralight font-heading mb-3>
-                        {{ position }}
-                    </p>
+                    <div flex items-center space-x-2>
+                        <p text-light-50 text-6xl font-extralight font-heading mb-3>
+                            {{ position }}
+                        </p>
+                        <img :src="props.item.image" w-8 :alt="props.item.title">
+                    </div>
                     <div pt-7>
                         <p text-light-50 text-2xl font-bold mb-3>
                             {{ props.item.title }}

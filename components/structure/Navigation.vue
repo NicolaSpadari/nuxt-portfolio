@@ -54,11 +54,11 @@
                 :transition="transition"
                 :final="{ opacity: 1, y: 0, x: 0 }"
             >
-                <NuxtLink to="https://github.com/NicolaSpadari" glow text-sm uppercase font-heading tracking-wider>
+                <NuxtLink to="https://github.com/NicolaSpadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank" @click="sendClick('github')">
                     GitHub
                 </NuxtLink>
             </Animation>
-            <NuxtLink v-else to="https://github.com/NicolaSpadari" glow text-sm uppercase font-heading tracking-wider>
+            <NuxtLink v-else to="https://github.com/NicolaSpadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank" @click="sendClick('github')">
                 GitHub
             </NuxtLink>
         </div>
@@ -70,11 +70,11 @@
                 :transition="transition"
                 :final="{ opacity: 1, y: 0, x: 0 }"
             >
-                <NuxtLink to="https://www.linkedin.com/in/nicolaspadari" glow text-sm uppercase font-heading tracking-wider>
+                <NuxtLink to="https://www.linkedin.com/in/nicolaspadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank" @click="sendClick('linkedin')">
                     LinkedIn
                 </NuxtLink>
             </Animation>
-            <NuxtLink v-else to="https://www.linkedin.com/in/nicolaspadari" glow text-sm uppercase font-heading tracking-wider>
+            <NuxtLink v-else to="https://www.linkedin.com/in/nicolaspadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank" @click="sendClick('linkedin')">
                 LinkedIn
             </NuxtLink>
         </div>
@@ -82,6 +82,15 @@
 </template>
 
 <script lang="ts" setup>
+    const location = await useLocation();
+    const { sendMessage } = useMessage();
+
+    const sendClick = async (to: string) => {
+        if (!process.dev) {
+            await sendMessage(to, location);
+        }
+    };
+
     const transition = {
         duration: 1.5,
         easing: "cubic-bezier(0.25, 1, 0.5, 1)"
