@@ -12,19 +12,18 @@ export default defineNuxtConfig({
     app: {
         head: {
             title: "Nicola Spadari",
+            charset: "utf-8",
+            viewport: "width=device-width, initial-scale=1",
             meta: [
-                { charset: "utf-8" },
-                { name: "viewport", content: "width=device-width, initial-scale=1" },
                 { name: "theme-color", content: "#181818" },
                 { name: "format-detection", content: "no" }
             ],
             link: [
                 { rel: "shortcut-icon", href: "/favicon.ico" }
             ],
-            htmlAttrs: {
-                lang: "en",
-                dir: "ltr"
-            }
+            noscript: [
+                { children: "JavaScript is required to run this project" }
+            ]
         }
     },
     typescript: {

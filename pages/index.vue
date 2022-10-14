@@ -7,7 +7,7 @@
         </div>
 
         <div absolute flex justify-center w-full top-16 :style="titleEffect">
-            <img src="assets/images/signature-static.svg" w-30>
+            <img src="@/assets/images/signature-static.svg" w-30>
         </div>
 
         <div absolute flex justify-center w-full h-full inset-0 pointer-events-none :style="textEffect">

@@ -1,5 +1,5 @@
 <template>
-    <div ref="comp" aspect-square relative bg-dark-400 :class="{ 'cursor-pointer transform hover:scale-93 transition-transform duration-300 ease-out-expo': !isMobile }">
+    <div ref="comp" aspect-square relative bg-dark-400 :class="isMobile ? 'border-blue-400/20 border-2 rounded-md' : 'cursor-pointer transform hover:scale-93 transition-transform duration-300 ease-out-expo'">
         <Presence>
             <Motion
                 :key="String(props.active)"

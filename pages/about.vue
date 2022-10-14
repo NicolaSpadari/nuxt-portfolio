@@ -4,15 +4,15 @@
 
         <div ref="element" h-screen max-w-screen class="custom-scrollbar">
             <div min-h-150vh overflow-x-hidden>
-                <div container mt-60 uw="mt-80">
-                    <div pointer-events-none :style="isMobile ? mobilePStyle : pStyle">
+                <div container mt-40 lg="mt-60" uw="mt-80">
+                    <div pointer-events-none :style="isMobile ? '' : pStyle">
                         <div overflow-hidden :style="firstTextEffect">
                             <Animation
                                 tag="p"
                                 :initial="{ opacity: 0, y: 100 }"
                                 :transition="{ duration: 1, delay: 0.75, easing: 'cubic-bezier(0.25, 1, 0.5, 1)' }"
                                 :final="{ opacity: 1, y: 0 }"
-                                text-light-50 transition-colors duration-500 text-5xl lg="text-8xl" xxl="text-10rem" font-bold uppercase
+                                text-light-50 transition-colors duration-500 text="2.5rem" lg="text-8xl pl-0" xxl="text-10rem" font-bold uppercase pl-3
                             >
                                 I'm a frontend
                             </Animation>
@@ -23,25 +23,25 @@
                                 :initial="{ opacity: 0, y: 100 }"
                                 :transition="{ duration: 1, delay: 1, easing: 'cubic-bezier(0.25, 1, 0.5, 1)' }"
                                 :final="{ opacity: 1, y: 0 }"
-                                text-light-50 transition-colors duration-500 text-5xl lg="text-8xl" xxl="text-10rem" font-bold uppercase
+                                text-light-50 transition-colors duration-500 text="2.5rem" lg="text-8xl pl-0" xxl="text-10rem" font-bold uppercase pl-3
                             >
                                 engineer
                             </Animation>
                         </div>
                     </div>
 
-                    <div :style="mobilePStyle">
+                    <div :style="isMobile ? '' : mobilePStyle">
                         <Animation
                             :initial="{ opacity: 0 }"
                             :transition="{ duration: 1, delay: 1.5, easing: 'cubic-bezier(0.25, 1, 0.5, 1)' }"
                             :final="{ opacity: 1 }"
                             max-w-5xl flex justify-center lg="justify-end mt-0" xl="max-w-full" animate-bounce mt-20
                         >
-                            <img src="assets/images/arrow.svg" h-15 lg="h-32">
+                            <img src="@/assets/images/arrow.svg" h-15 lg="h-32">
                         </Animation>
                     </div>
 
-                    <div grid grid-cols-1 lg="grid-cols-2" mt-80vh>
+                    <div grid grid-cols-1 mt-15vh lg="grid-cols-2 mt-80vh">
                         <Experiences />
                         <div hidden lg="block">
                             <div flex h-full lg="justify-center">
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                     </div>
-                    <div mt-30 mb-70>
+                    <div px-3 mt-30 mb-70 lg="px-0">
                         <div lg="mb-12">
                             <p text-light-50 font-heading text-3xl mb-7 lg="text-5xl mb-0" mb-5>
                                 Tech stack
