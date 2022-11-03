@@ -12,18 +12,19 @@
         "postinstall": "nuxi prepare"
     },
     "dependencies": {
-        "motion": "^10.14.2"
+        "motion": "^10.14.3"
     },
     "devDependencies": {
         "@antfu/eslint-config": "^0.27.0",
-        "@prisma/client": "^4.4.0",
-        "@unocss/nuxt": "^0.45.29",
-        "@vueuse/core": "^9.3.0",
-        "@vueuse/nuxt": "^9.3.0",
-        "eslint": "^8.25.0",
-        "nuxt": "^3.0.0-rc.11",
-        "prisma": "^4.4.0",
+        "@prisma/client": "^4.5.0",
+        "@unocss/nuxt": "^0.45.30",
+        "@vueuse/core": "^9.4.0",
+        "@vueuse/nuxt": "^9.4.0",
+        "eslint": "^8.26.0",
+        "nuxt": "^3.0.0-rc.12",
+        "prisma": "^4.5.0",
         "sass": "^1.55.0",
+        "typescript": "^4.8.4",
         "unocss-preset-scrollbar": "^0.2.1"
     }
 }

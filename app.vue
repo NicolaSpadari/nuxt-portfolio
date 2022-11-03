@@ -1,5 +1,5 @@
 <template>
-    <Body font-text overflow-hidden bg-dark-800>
+    <div font-text overflow-hidden bg-dark-800>
         <Disappear
             size-screen bg-dark-800 fixed inset-0 flex items-center justify-center z-100
             :state="splash"
@@ -25,7 +25,7 @@
                 <NuxtPage />
             </NuxtLayout>
         </div>
-    </Body>
+    </div>
 </template>
 
 <script lang="ts" setup>

@@ -15,7 +15,7 @@
                 :initial="{ x: '-100%', y: 0 }"
                 :animate="{ x: 0 }"
                 :transition="wave2"
-                fill-dark-800 !fill-opacity-25 transition-colors duration-500
+                fill-dark-800 fill-opacity="!25" transition-colors duration-500
             />
             <Motion
                 tag="path"
@@ -23,7 +23,7 @@
                 :initial="{ x: 0, y: -20 }"
                 :animate="{ x: '-100%' }"
                 :transition="wave3"
-                fill-dark-800 !fill-opacity-10 transition-colors duration-500
+                fill-dark-800 fill-opacity="!10" transition-colors duration-500
             />
         </svg>
     </div>

@@ -6,9 +6,9 @@ export default defineNuxtConfig({
             telegramChatId: process.env.TELEGRAM_CHAT_ID
         }
     },
-    unocss: {
-        preflight: true
-    },
+    css: [
+        "@unocss/reset/tailwind.css"
+    ],
     app: {
         head: {
             title: "Nicola Spadari",

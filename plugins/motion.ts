@@ -1,4 +1,4 @@
-// TEMP - to fix
+// @ts-expect-error Temporary workaround
 import { Motion as _motion, Presence as _presence } from "@motionone/vue/dist/motion-vue.esm.js";
 
 export default defineNuxtPlugin((nuxtApp) => {
