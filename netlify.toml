@@ -1,9 +1,9 @@
 [build.environment]
-    NODE_VERSION = "16.17.0"
+    NODE_VERSION = "16"
 
 [build]
     publish = "dist"
-    command = "pnpm i && pnpm run build"
+    command = "pnpm run build"
 
 [[redirects]]
     from = "/*"
