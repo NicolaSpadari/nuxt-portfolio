@@ -31,8 +31,6 @@
 </template>
 
 <script lang="ts" setup>
-    import type { Competence } from "@/types";
-
     const props = defineProps<{
         item: Competence
         index: number

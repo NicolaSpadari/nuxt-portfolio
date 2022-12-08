@@ -43,7 +43,9 @@
 </template>
 
 <script lang="ts" setup>
-    const { data: experiences } = await useFetch("/api/experiences");
+    const { data: experiences } = await useFetch("/api/experiences", {
+        headers: useRequestHeaders(["cookie"]) as Record<string, string>
+    });
 
     const formatDate = (date: string) => {
         const month = String(new Date(date).getMonth() + 1).padStart(2, "0");

@@ -1,5 +1,5 @@
 <template>
-    <nav container flex justify-between py-3 mb-5>
+    <nav crate flex justify-between py-3 mb-5>
         <div>
             <NuxtLink to="/">
                 Home

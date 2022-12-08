@@ -4,7 +4,7 @@
 
         <div ref="element" h-screen max-w-screen class="custom-scrollbar">
             <div min-h-150vh overflow-x-hidden>
-                <div container mt-40 lg="mt-60" uw="mt-80">
+                <div crate mt-40 lg="mt-60" uw="mt-80">
                     <div pointer-events-none :style="isMobile ? '' : pStyle">
                         <div overflow-hidden :style="firstTextEffect">
                             <Animation
@@ -70,12 +70,12 @@
 </template>
 
 <script lang="ts" setup>
-    import type { Competence as C } from "@/types";
-
-    const { data: competences } = await useFetch("/api/competences");
+    const { data: competences } = await useFetch("/api/competences", {
+        headers: useRequestHeaders(["cookie"]) as Record<string, string>
+    });
 
     const element = ref<any>(null);
-    const activeCompetence = ref<C | null>(null);
+    const activeCompetence = ref<Competence | null>(null);
     const { y: height } = useScroll(element);
     const arrived = ref(false);
     const position = ref(400);
@@ -107,7 +107,7 @@
         val > position.value ? arrived.value = true : arrived.value = false;
     });
 
-    const setActive = (item: C): void => {
+    const setActive = (item: Competence): void => {
         if (item === activeCompetence.value) {
             activeCompetence.value = null;
         } else {

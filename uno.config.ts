@@ -14,6 +14,7 @@ import { presetScrollbar } from "unocss-preset-scrollbar";
 
 export default defineConfig({
     shortcuts: [
+        ["crate", "container mx-auto"],
         ["size-full", "w-full h-full"],
         ["size-screen", "w-screen h-screen"],
         ["absolute-center-h", "left-50% transform -translate-x-50%"],

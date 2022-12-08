@@ -7,8 +7,6 @@
 </template>
 
 <script lang="ts" setup>
-    import type { Project } from "@/types";
-
     const props = defineProps<{
         item: Project
     }>();

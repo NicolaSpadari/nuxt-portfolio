@@ -1,16 +1,8 @@
-import { PrismaClient } from "@prisma/client";
+import { serverSupabaseClient } from "#supabase/server";
 
-const prisma = new PrismaClient();
+export default defineEventHandler(async (event) => {
+    const client = serverSupabaseClient(event);
+    const { data } = await client.from("Competences").select();
 
-export default defineEventHandler(async () => {
-    const data = await prisma.competences.findMany({
-        select: {
-            id: true,
-            title: true,
-            description: true,
-            image: true
-        }
-    });
-
-    return data;
+    return data as Competence[];
 });

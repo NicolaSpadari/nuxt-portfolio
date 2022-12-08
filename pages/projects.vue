@@ -2,7 +2,7 @@
     <PageWrapper>
         <StructurePageTitle left-8 />
 
-        <div container lg="max-w-screen" h-screen flex justify-center items-center>
+        <div crate lg="max-w-screen" h-screen flex justify-center items-center>
             <div
                 ref="carousel"
                 class="custom-scrollbar"
@@ -35,15 +35,15 @@
 </template>
 
 <script lang="ts" setup>
-    import type { Project } from "@/types";
-
-    const { data: projects } = await useFetch("/api/projects");
+    const { data: projects } = await useFetch("/api/projects", {
+        headers: useRequestHeaders(["cookie"]) as Record<string, string>
+    });
 
     const carousel = ref<HTMLElement | null>(null);
     const activeProject = ref<Project | null>(null);
     const text = ref();
 
-    const scrollHorizontally = useThrottleFn((e) => {
+    const scrollHorizontally = useThrottleFn((e: any) => {
         const delta = e.deltaY;
 
         let contWidth: number = e.target?.offsetWidth;
@@ -55,7 +55,7 @@
         carousel.value!.scrollLeft += contWidth;
     }, 150);
 
-    useEventListener(carousel, "wheel", (e) => {
+    useEventListener(carousel, "wheel", (e: any) => {
         e.preventDefault();
         scrollHorizontally(e);
     });

@@ -1,5 +1,5 @@
 <template>
-    <div font-text overflow-hidden bg-dark-800>
+    <Body font-text bg-dark-800 overflow-hidden>
         <Disappear
             size-screen bg-dark-800 fixed inset-0 flex items-center justify-center z-100
             :state="splash"
@@ -9,7 +9,7 @@
             :exit="finalState"
         >
             <Disappear
-                w-80% h-80% lg="w-60%"
+                w="80%" h="80%" lg="w-60%"
                 :state="splash"
                 :initial="{ opacity: 1, scale: 1 }"
                 :animate="{ opacity: 1, scale: 1 }"
@@ -20,12 +20,12 @@
             </Disappear>
         </Disappear>
 
-        <div v-show="ready" overflow-y-hidden>
+        <div v-show="ready">
             <NuxtLayout>
                 <NuxtPage />
             </NuxtLayout>
         </div>
-    </div>
+    </Body>
 </template>
 
 <script lang="ts" setup>
@@ -67,18 +67,15 @@
         @apply select-none;
     }
 
-    [container]{
-        @apply mx-auto;
-    }
-
     .bordered{
         text-shadow: theme("colors.dark.800") 0 0 3px;
     }
 
     .custom-scrollbar{
         scrollbar-color: theme("colors.zinc.200") initial;
-        overflow: overlay;
         scrollbar-width: thin;
+
+        @apply overflow-overlay;
 
         &::-webkit-scrollbar{
             @apply w-2 h-2;
@@ -94,7 +91,7 @@
 
     .page-enter-active,
     .page-leave-active {
-        transition: opacity 1s linear;
+        transition: all 1s ease-in-out;
     }
 
     .page-enter-from,

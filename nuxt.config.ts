@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-    modules: ["@vueuse/nuxt", "@unocss/nuxt"],
+    modules: ["@nuxtjs/supabase", "@vueuse/nuxt", "@unocss/nuxt"],
     runtimeConfig: {
         public: {
             telegramBotId: process.env.TELEGRAM_BOT_ID,
@@ -9,6 +9,11 @@ export default defineNuxtConfig({
     css: [
         "@unocss/reset/tailwind.css"
     ],
+    nitro: {
+        prerender: {
+            routes: ["/"]
+        }
+    },
     app: {
         head: {
             title: "Nicola Spadari",
@@ -24,10 +29,10 @@ export default defineNuxtConfig({
             noscript: [
                 { children: "JavaScript is required to run this project" }
             ]
+        },
+        pageTransition: {
+            name: "page",
+            mode: "out-in"
         }
-    },
-    typescript: {
-        shim: false,
-        strict: true
     }
 });
