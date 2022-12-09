@@ -114,4 +114,10 @@
             activeCompetence.value = item;
         }
     };
+
+    useHead({
+        meta: [
+            { name: "description", content: "My competences and work experiences" }
+        ]
+    });
 </script>

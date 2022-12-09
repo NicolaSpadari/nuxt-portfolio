@@ -1,7 +1,6 @@
 export const useMessage = () => {
     const sendMessage = async (page: string, location: IpLocation) => {
-        const { telegramBotId } = useRuntimeConfig();
-        const { telegramChatId } = useRuntimeConfig();
+        const { telegramBotId, telegramChatId } = useRuntimeConfig();
 
         const encMsg = encodeURIComponent(`
             V2 - Pagina ${page} visitata da ${location.city} (${location.country_name} - ${location.continent_code})

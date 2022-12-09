@@ -33,6 +33,12 @@
         carousel.value!.scrollLeft += contWidth;
     }, 150);
 
+    useHead({
+        meta: [
+            { name: "description", content: "A list of projects I worked on" }
+        ]
+    });
+
     useEventListener(carousel, "wheel", (e: any) => {
         e.preventDefault();
         scrollHorizontally(e);

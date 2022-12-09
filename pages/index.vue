@@ -1,14 +1,16 @@
 <template>
     <PageWrapper h-screen overflow-hidden z-5>
-        <div flex justify-center h-full p-8 lg="p-16">
-            <div w-75vw relative my-auto :style="imageEffect">
-                <Parallax relative lg="w-screen-xs mx-auto" h-125 />
+        <ClientOnly>
+            <div flex justify-center h-full p-8 lg="p-16">
+                <div w-75vw relative my-auto :style="imageEffect">
+                    <Parallax relative lg="w-screen-xs mx-auto" h-125 />
+                </div>
             </div>
-        </div>
 
-        <div absolute flex justify-center w-full top-16 :style="titleEffect">
-            <img src="@/assets/images/signature-static.svg" w-30>
-        </div>
+            <div absolute flex justify-center w-full top-16 :style="titleEffect">
+                <img src="@/assets/images/signature-static.svg" w-30>
+            </div>
+        </ClientOnly>
 
         <div absolute flex justify-center w-full h-full inset-0 pointer-events-none :style="textEffect">
             <div overflow-y-hidden my-auto>
