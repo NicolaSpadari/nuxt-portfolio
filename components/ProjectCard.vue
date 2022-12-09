@@ -1,7 +1,12 @@
 <template>
-    <div ref="comp" flex-shrink-0 snap-start snap-always p-10 class="project animated-border group">
-        <NuxtLink :to="props.item.link">
-            <img :src="props.item.image" :alt="props.item.title" rounded-lg>
+    <div flex-shrink-0 snap-start snap-always>
+        <div p-10 class="animated-border">
+            <NuxtLink :to="props.item.link">
+                <img :src="props.item.image" :alt="props.item.title" rounded-lg>
+            </NuxtLink>
+        </div>
+        <NuxtLink :to="props.item.link" block text-white font-medium text-2xl text-center class="interact">
+            {{ props.item.title }}
         </NuxtLink>
     </div>
 </template>
@@ -10,21 +15,6 @@
     const props = defineProps<{
         item: Project
     }>();
-
-    const emit = defineEmits(["hovered"]);
-
-    const comp = ref<HTMLElement>();
-    const { isOutside } = useMouseInElement(comp);
-
-    const setActive = (item: Project | null) => {
-        emit("hovered", item);
-    };
-
-    watch(isOutside, (outside) => {
-        if (!outside) {
-            setActive(props.item);
-        }
-    });
 </script>
 
 <style lang="scss" scoped>

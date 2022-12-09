@@ -8,11 +8,17 @@
         :data-text="routeName"
         glitch
     >
-        {{ routeName }}
+        {{ props.msg ? props.msg : routeName }}
     </Animation>
 </template>
 
 <script lang="ts" setup>
+    const props = defineProps({
+        msg: {
+            type: String,
+            required: false
+        }
+    })
     const route = useRoute();
     const routeName = unref(route.name);
 </script>

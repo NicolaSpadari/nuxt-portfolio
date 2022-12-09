@@ -54,7 +54,7 @@
                     <div px-3 mt-30 mb-70 lg="px-0">
                         <div lg="mb-12">
                             <p text-light-50 font-heading text-3xl mb-7 lg="text-5xl mb-0" mb-5>
-                                Tech stack
+                                What I use
                             </p>
                         </div>
                         <div grid grid-cols-2 md="grid-cols-4" lg="grid-cols-6" gap-4>
