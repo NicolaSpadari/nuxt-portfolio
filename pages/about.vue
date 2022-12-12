@@ -1,8 +1,8 @@
 <template>
-    <PageWrapper>
+    <div>
         <StructurePageTitle right-8 />
 
-        <div ref="element" h-screen max-w-screen class="custom-scrollbar">
+        <div ref="element" h-screen max-w-screen class="custom-scrollbar" overflow-y-scroll>
             <div min-h-150vh overflow-x-hidden>
                 <div crate mt-40 lg="mt-60" uw="mt-80">
                     <div pointer-events-none :style="isMobile ? '' : pStyle">
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                     </div>
-                    <div px-3 mt-30 mb-70 lg="px-0">
+                    <div px-3 mt-30 mb-70 lg="px-0" relative uw="z-80">
                         <div lg="mb-12">
                             <p text-light-50 font-heading text-3xl mb-7 lg="text-5xl mb-0" mb-5>
                                 What I use
@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-    </PageWrapper>
+    </div>
 </template>
 
 <script lang="ts" setup>

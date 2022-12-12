@@ -16,7 +16,7 @@
                 :transition="{ duration: 1, easing: 'cubic-bezier(0.65, 0, 0.35, 1)' }"
                 :exit="{ opacity: 0, scale: 0.5 }"
             >
-                <Signature text-gray-50 size-full @ended="ended()" />
+                <Signature @ended="handleSplash()" />
             </Disappear>
         </Disappear>
 
@@ -48,7 +48,7 @@
         opacity: 0
     };
 
-    const ended = () => {
+    const handleSplash = () => {
         splash.value = false;
 
         useTimeoutFn(() => {

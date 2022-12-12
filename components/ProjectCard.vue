@@ -1,13 +1,13 @@
 <template>
-    <div flex-shrink-0 snap-start snap-always>
+    <div flex flex-col items-center flex-shrink-0 snap-start snap-always>
         <div p-10 class="animated-border">
             <NuxtLink :to="props.item.link">
                 <img :src="props.item.image" :alt="props.item.title" rounded-lg>
             </NuxtLink>
         </div>
-        <NuxtLink :to="props.item.link" block text-white font-medium text-2xl text-center class="interact">
+        <p text-white font-medium text-2xl text-center grab>
             {{ props.item.title }}
-        </NuxtLink>
+        </p>
     </div>
 </template>
 

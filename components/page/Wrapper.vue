@@ -1,5 +1,5 @@
 <template>
-    <div relative z-5>
+    <div relative>
         <slot />
     </div>
 </template>

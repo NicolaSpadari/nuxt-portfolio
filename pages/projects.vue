@@ -1,52 +1,73 @@
 <template>
-    <PageWrapper>
+    <div>
         <StructurePageTitle left-8 />
 
-        <div crate lg="max-w-screen" h-screen flex justify-center items-center>
-            <div
-                ref="carousel"
-                class="custom-scrollbar"
-                carousel flex flex-col lg="flex-row space-x-50 px-0 py-7" py-15 px-5
+        <div flex h-screen items-center overflow-y-hidden>
+            <Swiper
+                :breakpoints="breakpoints"
+                :direction="direction"
+                :scrollbar="{
+                    draggable: true,
+                    verticalClass: 'hidden',
+                    dragClass: 'swiper-scrollbar-drag grab',
+                    horizontalClass: 'swiper-scrollbar-horizontal w-3/4! absolute-center-h! bottom-unset! top-0!',
+                }"
+                :modules="[Mousewheel, Scrollbar]"
+                :mousewheel="true"
+                :height="500"
+                :width="width"
+                h-90vh md="h-auto" z-30 uw="z-80"
             >
-                <ProjectCard v-for="item in projects" :key="item.id" :item="item" />
-            </div>
+                <SwiperSlide v-for="item in projects" :key="item.id">
+                    <ProjectCard :item="item" />
+                </SwiperSlide>
+            </Swiper>
         </div>
-    </PageWrapper>
+    </div>
 </template>
 
 <script lang="ts" setup>
+    import { Swiper, SwiperSlide } from "swiper/vue";
+    import { Mousewheel, Scrollbar } from "swiper";
+
     const { data: projects } = await useFetch("/api/projects", {
         headers: useRequestHeaders(["cookie"]) as Record<string, string>
     });
 
-    const carousel = ref<HTMLElement | null>(null);
+    const { width } = useWindowSize();
 
-    const scrollHorizontally = useThrottleFn((e: any) => {
-        const delta = e.deltaY;
+    const direction = width.value > 768 ? "horizontal" : "vertical";
 
-        let contWidth: number = e.target?.offsetWidth;
-
-        if (delta < 0) {
-            contWidth = -contWidth;
-        }
-
-        carousel.value!.scrollLeft += contWidth;
-    }, 150);
+    const breakpoints = {
+        320: {
+            slidesPerView: 1,
+            spaceBetween: 40
+        },
+        768: {
+            slidesPerView: 2,
+            spaceBetween: 50
+        },
+        992: {
+            slidesPerView: 3,
+            spaceBetween: 60
+        },
+        1200: {
+            slidesPerView: 3.3,
+            spaceBetween: 70
+        },
+        1400: {
+            slidesPerView: 4.2,
+            spaceBetween: 60
+        },
+    };
 
     useHead({
         meta: [
             { name: "description", content: "A list of projects I worked on" }
         ]
     });
-
-    useEventListener(carousel, "wheel", (e: any) => {
-        e.preventDefault();
-        scrollHorizontally(e);
-    });
 </script>
 
-<style lang="scss" scoped>
-    [carousel]{
-        @apply overflow-y-scroll max-h-100vh lg:(max-h-unset overflow-y-visible overflow-x-auto) snap-x snap-mandatory scroll-p-3 scroll-smooth;
-    }
+<style lang="scss">
+    @import "swiper/scss/scrollbar";
 </style>

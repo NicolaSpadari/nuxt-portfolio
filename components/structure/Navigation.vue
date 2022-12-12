@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div fixed z-50 left-8 top-8 lg="left-16 top-16">
+        <div fixed z-80 left-8 top-8 lg="left-16 top-16">
             <Animation
                 v-if="$route.path === '/'"
                 :initial="{ opacity: 0, y: -100, x: -100 }"
@@ -16,7 +16,7 @@
             </NuxtLink>
         </div>
 
-        <div fixed z-50 right-8 top-8 lg="right-16 top-16">
+        <div fixed z-80 right-8 top-8 lg="right-16 top-16">
             <Animation
                 v-if="$route.path === '/'"
                 :initial="{ opacity: 0, y: -100, x: 100 }"
@@ -32,7 +32,7 @@
             </NuxtLink>
         </div>
 
-        <div fixed z-50 absolute-center-h bottom-8 lg="bottom-16">
+        <div fixed z-80 absolute-center-h bottom-8 lg="bottom-16">
             <Presence>
                 <Motion
                     v-if="$route.path !== '/'"
@@ -47,34 +47,34 @@
             </Presence>
         </div>
 
-        <div fixed z-50 left-8 bottom-8 lg="left-16 bottom-16">
+        <div fixed z-80 left-8 bottom-8 lg="left-16 bottom-16">
             <Animation
                 v-if="$route.path === '/'"
                 :initial="{ opacity: 0, y: -100, x: -100 }"
                 :transition="transition"
                 :final="{ opacity: 1, y: 0, x: 0 }"
             >
-                <NuxtLink to="https://github.com/NicolaSpadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank" @click="sendClick('github')">
+                <NuxtLink to="https://github.com/NicolaSpadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank">
                     GitHub
                 </NuxtLink>
             </Animation>
-            <NuxtLink v-else to="https://github.com/NicolaSpadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank" @click="sendClick('github')">
+            <NuxtLink v-else to="https://github.com/NicolaSpadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank">
                 GitHub
             </NuxtLink>
         </div>
 
-        <div fixed z-50 right-8 bottom-8 lg="right-16 bottom-16">
+        <div fixed z-80 right-8 bottom-8 lg="right-16 bottom-16">
             <Animation
                 v-if="$route.path === '/'"
                 :initial="{ opacity: 0, y: -100, x: 100 }"
                 :transition="transition"
                 :final="{ opacity: 1, y: 0, x: 0 }"
             >
-                <NuxtLink to="https://www.linkedin.com/in/nicolaspadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank" @click="sendClick('linkedin')">
+                <NuxtLink to="https://www.linkedin.com/in/nicolaspadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank">
                     LinkedIn
                 </NuxtLink>
             </Animation>
-            <NuxtLink v-else to="https://www.linkedin.com/in/nicolaspadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank" @click="sendClick('linkedin')">
+            <NuxtLink v-else to="https://www.linkedin.com/in/nicolaspadari" :external="true" glow text-sm uppercase font-heading tracking-wider target="_blank">
                 LinkedIn
             </NuxtLink>
         </div>
@@ -82,15 +82,6 @@
 </template>
 
 <script lang="ts" setup>
-    const location = await useLocation();
-    const { sendMessage } = useMessage();
-
-    const sendClick = async (to: string) => {
-        if (!process.dev) {
-            await sendMessage(to, location);
-        }
-    };
-
     const transition = {
         duration: 1.5,
         easing: "cubic-bezier(0.25, 1, 0.5, 1)"

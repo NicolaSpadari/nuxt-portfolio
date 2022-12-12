@@ -23,7 +23,8 @@ export default defineNuxtConfig({
         }
     },
     css: [
-        "@unocss/reset/tailwind.css"
+        "@unocss/reset/tailwind.css",
+        "swiper/css"
     ],
     runtimeConfig: {
         public: {

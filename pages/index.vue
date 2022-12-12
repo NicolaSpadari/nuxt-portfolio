@@ -1,5 +1,5 @@
 <template>
-    <PageWrapper h-screen overflow-hidden z-5>
+    <div relative h-screen overflow-hidden z-65>
         <ClientOnly>
             <div flex justify-center h-full p-8 lg="p-16">
                 <div w-75vw relative my-auto :style="imageEffect">
@@ -17,7 +17,7 @@
                 <div select-none flex flex-col lg="flex-row space-x-12" font-heading text-light-50 transition-colors duration-500 bordered font-extralight uppercase tracking-widest justify-center>
                     <Animation
                         tag="p"
-                        :initial="{ y: 200 }"
+                        :initial="{ y: width > 768 ? 200 : -200 }"
                         :transition="{ delay: 1.25, duration: 1 }"
                         :final="{ y: 0 }"
                         text-center lg="text-left"
@@ -26,7 +26,7 @@
                     </Animation>
                     <Animation
                         tag="p"
-                        :initial="{ y: -200 }"
+                        :initial="{ y: width > 768 ? -200 : 200 }"
                         :transition="{ delay: 1.25, duration: 1 }"
                         :final="{ y: 0 }"
                         text-center lg="text-left"
@@ -36,22 +36,23 @@
                 </div>
             </div>
         </div>
-    </PageWrapper>
+    </div>
 </template>
 
 <script lang="ts" setup>
+    const { width } = useWindowSize();
     const { x, y } = useMouse({ touch: false });
 
     const textEffect = computed(() => ({
-        transform: `translateX(${x.value / 45}px) translateY(-${y.value / 45}px)`
+        transform: width.value > 768 ? `translateX(${x.value / 45}px) translateY(-${y.value / 45}px)` : "none"
     }));
 
     const titleEffect = computed(() => ({
-        transform: `translateX(${x.value / 100}px) translateY(-${y.value / 100}px)`
+        transform: width.value > 768 ? `translateX(${x.value / 100}px) translateY(-${y.value / 100}px)` : "none"
     }));
 
     const imageEffect = computed(() => ({
-        transform: `translateX(-${x.value / 50}px) translateY(${y.value / 50}px)`
+        transform: width.value > 768 ? `translateX(-${x.value / 50}px) translateY(${y.value / 50}px)` : "none"
     }));
 </script>
 

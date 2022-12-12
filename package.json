@@ -14,7 +14,8 @@
         "generate": "nuxi generate"
     },
     "dependencies": {
-        "motion": "^10.15.3"
+        "motion": "^10.15.3",
+        "swiper": "^8.4.5"
     },
     "devDependencies": {
         "@antfu/eslint-config": "^0.33.1",

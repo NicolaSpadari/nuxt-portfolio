@@ -1,7 +1,9 @@
 <template>
     <div>
         <StructureNavigation />
-        <slot />
+        <div relative>
+            <slot />
+        </div>
         <Waves bottom-0 md="-bottom-10" xl="-bottom-20" />
         <Noise />
     </div>

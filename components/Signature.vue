@@ -1,133 +1,138 @@
 <template>
-    <svg v-if="!isDev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 453.3 179.2">
-        <Motion
-            v-for="(segment, index) in letter1.paths"
-            :key="index"
-            tag="path"
-            :initial="{ visibility: 'hidden' }"
-            :animate="draw(1)"
-            :transition="{
-                duration: 0.015,
-                delay: (index * 0.015),
-                easing: 'linear',
-            }"
-            :pathLength="1"
-            :d="segment.path"
-            :class="segment.class"
-        />
-        <Motion
-            v-for="(segment, index) in letter2.paths"
-            :key="index"
-            tag="path"
-            :initial="{ visibility: 'hidden' }"
-            :animate="draw(1)"
-            :transition="{
-                duration: 0.01,
-                delay: 0.5 + (index * 0.01),
-                easing: 'linear',
-            }"
-            :pathLength="1"
-            :d="segment.path"
-            :class="segment.class"
-        />
-        <Motion
-            v-for="(segment, index) in letter3.paths"
-            :key="index"
-            tag="path"
-            :initial="{ visibility: 'hidden' }"
-            :animate="draw(1)"
-            :transition="{
-                duration: 0.01,
-                delay: 0.8 + (index * 0.01),
-                easing: 'linear',
-            }"
-            :pathLength="1"
-            :d="segment.path"
-            :class="segment.class"
-        />
-        <Motion
-            v-for="(segment, index) in letter4.paths"
-            :key="index"
-            tag="path"
-            :initial="{ visibility: 'hidden' }"
-            :animate="draw(1)"
-            :transition="{
-                duration: 0.01,
-                delay: 1 + (index * 0.01),
-                easing: 'linear',
-            }"
-            :pathLength="1"
-            :d="segment.path"
-            :class="segment.class"
-        />
-        <Motion
-            v-for="(segment, index) in letter5.paths"
-            :key="index"
-            tag="path"
-            :initial="{ visibility: 'hidden' }"
-            :animate="draw(1)"
-            :transition="{
-                duration: 0.01,
-                delay: 1.3 + (index * 0.01),
-                easing: 'linear',
-            }"
-            :pathLength="1"
-            :d="segment.path"
-            :class="segment.class"
-        />
-        <Motion
-            v-for="(segment, index) in letter6.paths"
-            :key="index"
-            tag="path"
-            :initial="{ visibility: 'hidden' }"
-            :animate="draw(1)"
-            :transition="{
-                duration: 0.01,
-                delay: 1.5 + (index * 0.01),
-                easing: 'linear',
-            }"
-            :pathLength="1"
-            :d="segment.path"
-            :class="segment.class"
-        />
-        <Motion
-            v-for="(segment, index) in letter7.paths"
-            :key="index"
-            tag="path"
-            :initial="{ visibility: 'hidden' }"
-            :animate="draw(1)"
-            :transition="{
-                duration: 0.015,
-                delay: 1.65 + (index * 0.015),
-                easing: 'linear',
-            }"
-            :pathLength="1"
-            :d="segment.path"
-            :class="segment.class"
-        />
-    </svg>
+    <ClientOnly>
+        <svg v-if="!playedOnce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 453.3 179.2" text-gray-50 size-full>
+            <Motion
+                v-for="(segment, index) in letter1.paths"
+                :key="index"
+                tag="path"
+                :initial="{ visibility: 'hidden' }"
+                :animate="draw(1)"
+                :transition="{
+                    duration: 0.015,
+                    delay: (index * 0.015),
+                    easing: 'linear',
+                }"
+                :pathLength="1"
+                :d="segment.path"
+                :class="segment.class"
+            />
+            <Motion
+                v-for="(segment, index) in letter2.paths"
+                :key="index"
+                tag="path"
+                :initial="{ visibility: 'hidden' }"
+                :animate="draw(1)"
+                :transition="{
+                    duration: 0.01,
+                    delay: 0.5 + (index * 0.01),
+                    easing: 'linear',
+                }"
+                :pathLength="1"
+                :d="segment.path"
+                :class="segment.class"
+            />
+            <Motion
+                v-for="(segment, index) in letter3.paths"
+                :key="index"
+                tag="path"
+                :initial="{ visibility: 'hidden' }"
+                :animate="draw(1)"
+                :transition="{
+                    duration: 0.01,
+                    delay: 0.8 + (index * 0.01),
+                    easing: 'linear',
+                }"
+                :pathLength="1"
+                :d="segment.path"
+                :class="segment.class"
+            />
+            <Motion
+                v-for="(segment, index) in letter4.paths"
+                :key="index"
+                tag="path"
+                :initial="{ visibility: 'hidden' }"
+                :animate="draw(1)"
+                :transition="{
+                    duration: 0.01,
+                    delay: 1 + (index * 0.01),
+                    easing: 'linear',
+                }"
+                :pathLength="1"
+                :d="segment.path"
+                :class="segment.class"
+            />
+            <Motion
+                v-for="(segment, index) in letter5.paths"
+                :key="index"
+                tag="path"
+                :initial="{ visibility: 'hidden' }"
+                :animate="draw(1)"
+                :transition="{
+                    duration: 0.01,
+                    delay: 1.3 + (index * 0.01),
+                    easing: 'linear',
+                }"
+                :pathLength="1"
+                :d="segment.path"
+                :class="segment.class"
+            />
+            <Motion
+                v-for="(segment, index) in letter6.paths"
+                :key="index"
+                tag="path"
+                :initial="{ visibility: 'hidden' }"
+                :animate="draw(1)"
+                :transition="{
+                    duration: 0.01,
+                    delay: 1.5 + (index * 0.01),
+                    easing: 'linear',
+                }"
+                :pathLength="1"
+                :d="segment.path"
+                :class="segment.class"
+            />
+            <Motion
+                v-for="(segment, index) in letter7.paths"
+                :key="index"
+                tag="path"
+                :initial="{ visibility: 'hidden' }"
+                :animate="draw(1)"
+                :transition="{
+                    duration: 0.015,
+                    delay: 1.65 + (index * 0.015),
+                    easing: 'linear',
+                }"
+                :pathLength="1"
+                :d="segment.path"
+                :class="segment.class"
+            />
+        </svg>
+    </ClientOnly>
 </template>
 
 <script lang="ts" setup>
-    const emits = defineEmits([
-        "ended"
-    ]);
-
-    const isDev = process.dev;
+    const emits = defineEmits(["ended"]);
 
     const { letter1, letter2, letter3, letter4, letter5, letter6, letter7 } = useLetter();
+
+    const playedOnce = useSessionStorage("playedOnce", false);
 
     const draw = (progress: number): object => ({
         strokeDashoffset: 1 - progress,
         visibility: "visible"
     });
 
-    if (isDev) {
+    if (playedOnce.value) {
         emits("ended");
     } else {
         setTimeout(() => {
             emits("ended");
         }, 3000);
+
+        setTimeout(() => {
+            console.log("setting played once true");
+            playedOnce.value = true;
+        }, 4000);
     }
 </script>
 

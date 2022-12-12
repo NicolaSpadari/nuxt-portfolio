@@ -18,7 +18,8 @@ export default defineConfig({
         ["size-full", "w-full h-full"],
         ["size-screen", "w-screen h-screen"],
         ["absolute-center-h", "left-50% transform -translate-x-50%"],
-        ["absolute-center-v", "top-50% transform -translate-y-50%"]
+        ["absolute-center-v", "top-50% transform -translate-y-50%"],
+        ["grab", "cursor-grab active:cursor-grabbing"]
     ],
     presets: [
         presetUno(),
