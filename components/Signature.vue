@@ -130,7 +130,6 @@
         }, 3000);
 
         setTimeout(() => {
-            console.log("setting played once true");
             playedOnce.value = true;
         }, 4000);
     }

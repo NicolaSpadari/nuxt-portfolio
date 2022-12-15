@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-    modules: ["@nuxtjs/supabase", "@vueuse/nuxt", "@unocss/nuxt"],
+    modules: ["nuxt-security", "@nuxtjs/supabase", "@vueuse/nuxt", "@unocss/nuxt"],
     app: {
         head: {
             title: "Nicola Spadari",
@@ -40,5 +40,8 @@ export default defineNuxtConfig({
     routeRules: {
         "/projects": { swr: 43200 },
         "/about": { swr: 43200 },
+    },
+    security: {
+        hidePoweredBy: false
     }
 });
