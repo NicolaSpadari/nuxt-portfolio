@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-    modules: ["@nuxtjs/supabase", "@vueuse/nuxt", "@unocss/nuxt"],
+    modules: ["@nuxtjs/supabase", "nuxt-swiper", "@vueuse/nuxt", "@unocss/nuxt"],
     app: {
         head: {
             title: "Nicola Spadari",

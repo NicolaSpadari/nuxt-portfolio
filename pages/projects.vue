@@ -12,7 +12,7 @@
                     dragClass: 'swiper-scrollbar-drag grab',
                     horizontalClass: 'swiper-scrollbar-horizontal w-3/4! absolute-center-h! bottom-unset! top-0!',
                 }"
-                :modules="[Mousewheel, Scrollbar]"
+                :modules="[SwiperMousewheel, SwiperScrollbar]"
                 :mousewheel="true"
                 :height="500"
                 :width="width"
@@ -27,9 +27,6 @@
 </template>
 
 <script lang="ts" setup>
-    import { Swiper, SwiperSlide } from "swiper/vue";
-    import { Mousewheel, Scrollbar } from "swiper";
-
     const { data: projects } = await useFetch("/api/projects", {
         headers: useRequestHeaders(["cookie"]) as Record<string, string>
     });
@@ -67,7 +64,3 @@
         ]
     });
 </script>
-
-<style lang="scss">
-    @import "swiper/scss/scrollbar";
-</style>
