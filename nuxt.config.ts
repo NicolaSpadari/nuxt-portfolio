@@ -26,12 +26,6 @@ export default defineNuxtConfig({
         "@unocss/reset/tailwind.css",
         "swiper/css"
     ],
-    runtimeConfig: {
-        public: {
-            telegramBotId: process.env.TELEGRAM_BOT_ID,
-            telegramChatId: process.env.TELEGRAM_CHAT_ID
-        }
-    },
     nitro: {
         prerender: {
             routes: ["/"]
@@ -40,5 +34,9 @@ export default defineNuxtConfig({
     routeRules: {
         "/projects": { swr: 43200 },
         "/about": { swr: 43200 },
+    },
+    sourcemap: {
+        server: true,
+        client: false
     }
 });

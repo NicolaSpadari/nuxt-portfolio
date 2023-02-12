@@ -5,12 +5,12 @@
         <div flex h-screen items-center overflow-y-hidden>
             <Swiper
                 :breakpoints="breakpoints"
-                :direction="direction"
+                :direction="width > 768 ? 'horizontal' : 'vertical'"
                 :scrollbar="{
                     draggable: true,
                     verticalClass: 'hidden',
-                    dragClass: 'swiper-scrollbar-drag grab',
-                    horizontalClass: 'swiper-scrollbar-horizontal w-3/4! absolute-center-h! bottom-unset! top-0!',
+                    dragClass: 'swiper-scrollbar-drag',
+                    horizontalClass: 'swiper-scrollbar-horizontal',
                 }"
                 :modules="[SwiperMousewheel, SwiperScrollbar]"
                 :mousewheel="true"
@@ -32,8 +32,6 @@
     });
 
     const { width } = useWindowSize();
-
-    const direction = width.value > 768 ? "horizontal" : "vertical";
 
     const breakpoints = {
         320: {
@@ -64,3 +62,12 @@
         ]
     });
 </script>
+
+<style>
+    .swiper-scrollbar-horizontal{
+        @apply w-3/4! absolute-center-h! bottom-unset! top-0!;
+    }
+    .swiper-scrollbar-drag{
+        @apply grab;
+    }
+</style>
