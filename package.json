@@ -20,12 +20,12 @@
     "devDependencies": {
         "@antfu/eslint-config": "^0.35.2",
         "@nuxtjs/supabase": "^0.3.1",
-        "@unocss/nuxt": "^0.49.4",
-        "@vueuse/core": "^9.12.0",
-        "@vueuse/nuxt": "^9.12.0",
+        "@unocss/nuxt": "^0.49.7",
+        "@vueuse/core": "^9.13.0",
+        "@vueuse/nuxt": "^9.13.0",
         "eslint": "^8.34.0",
-        "nuxt": "^3.2.0",
-        "sass": "^1.58.0",
+        "nuxt": "^3.2.2",
+        "sass": "^1.58.3",
         "typescript": "^4.9.5",
         "unocss-preset-scrollbar": "^0.2.1"
     }
