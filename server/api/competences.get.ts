@@ -1,8 +1,8 @@
 import { serverSupabaseClient } from "#supabase/server";
 
 export default defineEventHandler(async (event) => {
-    const client = serverSupabaseClient(event);
-    const { data } = await client.from("portfolio_competences").select();
+	const client = await serverSupabaseClient(event);
+	const { data } = await client.from("portfolio_competences").select();
 
-    return data as Competence[];
+	return data as Competence[];
 });

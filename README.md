@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./assets/images/signature-static.svg" width="300" alt="Signature" />
+<img src="./assets/images/signature-static.svg" width="300" alt="Signature" style="filter: invert(1);" />
 </p>
 
 <hr>

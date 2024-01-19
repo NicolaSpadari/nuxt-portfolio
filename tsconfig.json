@@ -1,9 +1,13 @@
 {
-    "extends": "./.nuxt/tsconfig.json",
-    "compilerOptions": {
-        "strict": true
-    },
-    "vueCompilerOptions": {
-        "experimentalDisableTemplateSupport": true
-    }
+	"extends": "./.nuxt/tsconfig.json",
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"strict": true
+	},
+	"include": [
+		".nuxt/nuxt.d.ts",
+		"env.d.ts",
+		"**/*"
+	]
 }
