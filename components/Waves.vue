@@ -33,18 +33,18 @@
 	const wave = "M 0,10 C 30,10 30,15 60,15 90,15 90,10 120,10 150,10 150,15 180,15 210,15 210,10 240,10 v 28 h -240 z";
 
 	const wave1 = {
-		"duration": 8,
-		"easing": "linear",
-		"repeat": Number.POSITIVE_INFINITY
+		duration: 8,
+		easing: "linear",
+		repeat: Number.POSITIVE_INFINITY
 	};
 	const wave2 = {
-		"duration": 10,
-		"easing": "linear",
-		"repeat": Number.POSITIVE_INFINITY
+		duration: 10,
+		easing: "linear",
+		repeat: Number.POSITIVE_INFINITY
 	};
 	const wave3 = {
-		"duration": 5,
-		"easing": "linear",
-		"repeat": Number.POSITIVE_INFINITY
+		duration: 5,
+		easing: "linear",
+		repeat: Number.POSITIVE_INFINITY
 	};
 </script>

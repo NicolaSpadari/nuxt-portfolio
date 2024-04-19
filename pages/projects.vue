@@ -27,38 +27,38 @@
 </template>
 
 <script lang="ts" setup>
-	const { "data": projects } = await useFetch("/api/projects", {
-		"headers": useRequestHeaders(["cookie"]) as Record<string, string>
+	const { data: projects } = await useFetch("/api/projects", {
+		headers: useRequestHeaders(["cookie"]) as Record<string, string>
 	});
 
 	const { width } = useWindowSize();
 
 	const breakpoints = {
-		"320": {
-			"slidesPerView": 1,
-			"spaceBetween": 40
+		320: {
+			slidesPerView: 1,
+			spaceBetween: 40
 		},
-		"768": {
-			"slidesPerView": 2,
-			"spaceBetween": 50
+		768: {
+			slidesPerView: 2,
+			spaceBetween: 50
 		},
-		"992": {
-			"slidesPerView": 3,
-			"spaceBetween": 60
+		992: {
+			slidesPerView: 3,
+			spaceBetween: 60
 		},
-		"1200": {
-			"slidesPerView": 3.3,
-			"spaceBetween": 70
+		1200: {
+			slidesPerView: 3.3,
+			spaceBetween: 70
 		},
-		"1400": {
-			"slidesPerView": 4.2,
-			"spaceBetween": 60
+		1400: {
+			slidesPerView: 4.2,
+			spaceBetween: 60
 		}
 	};
 
 	useHead({
-		"meta": [
-			{ "name": "description", "content": "A list of projects I worked on" }
+		meta: [
+			{ name: "description", content: "A list of projects I worked on" }
 		]
 	});
 </script>

@@ -31,19 +31,19 @@
 	const splash = ref(true);
 
 	const initialState = {
-		"visibility": "visible",
-		"opacity": 1
+		visibility: "visible",
+		opacity: 1
 	};
 
 	const transition = {
-		"duration": 0.7,
-		"delay": 0.65,
-		"easing": "cubic-bezier(0.22, 1, 0.36, 1)"
+		duration: 0.7,
+		delay: 0.65,
+		easing: "cubic-bezier(0.22, 1, 0.36, 1)"
 	};
 
 	const finalState = {
-		"visibility": "hidden",
-		"opacity": 0
+		visibility: "hidden",
+		opacity: 0
 	};
 
 	const handleSplash = () => {

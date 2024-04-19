@@ -1,8 +1,9 @@
 {
+	"name": "nuxt-portfolio",
 	"type": "module",
 	"version": "1.0.0",
 	"private": true,
-	"packageManager": "pnpm@8.14.1",
+	"packageManager": "pnpm@9.0.4",
 	"description": "My portfolio made with Nuxt 3",
 	"author": {
 		"name": "Nicola Spadari",
@@ -12,31 +13,32 @@
 		"node": ">=20"
 	},
 	"scripts": {
-		"build": "nuxt build",
 		"dev": "nuxt dev",
+		"build": "nuxt build",
+		"generate": "nuxi generate",
+		"preview": "nuxt preview",
 		"start": "node .output/server/index.mjs",
-		"lint": "eslint . --fix",
 		"preinstall": "npx only-allow pnpm",
 		"postinstall": "nuxi prepare",
-		"generate": "nuxi generate"
+		"lint": "eslint . --fix"
 	},
 	"dependencies": {
-		"motion": "10.16.4",
+		"@nuxt/image": "^1.5.0",
 		"nuxt-swiper": "^1.2.2"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "^2.6.3",
-		"@nuxtjs/supabase": "^1.1.5",
-		"@unocss/eslint-plugin": "^0.58.3",
-		"@unocss/nuxt": "^0.58.3",
-		"@vueuse/core": "^10.7.2",
-		"@vueuse/nuxt": "^10.7.2",
-		"eslint": "npm:eslint-ts-patch@8.56.0-0",
-		"eslint-ts-patch": "8.56.0-0",
-		"nuxt": "^3.9.3",
-		"nuxt-gtag": "^1.1.2",
-		"sass": "^1.70.0",
-		"typescript": "^5.3.3",
-		"unocss-preset-scrollbar": "^0.3.0"
+		"@antfu/eslint-config": "^2.15.0",
+		"@hypernym/nuxt-gsap": "^2.4.2",
+		"@nuxtjs/supabase": "^1.2.1",
+		"@unocss/eslint-plugin": "^0.59.4",
+		"@unocss/nuxt": "^0.59.4",
+		"@vueuse/core": "^10.9.0",
+		"@vueuse/nuxt": "^10.9.0",
+		"eslint": "8.57.0",
+		"nuxt": "^3.11.2",
+		"nuxt-gtag": "^2.0.5",
+		"sass": "^1.75.0",
+		"typescript": "^5.4.5",
+		"unocss-preset-scrollbar": "^0.3.1"
 	}
 }

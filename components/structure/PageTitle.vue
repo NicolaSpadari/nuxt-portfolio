@@ -14,9 +14,9 @@
 
 <script lang="ts" setup>
 	const props = defineProps({
-		"msg": {
-			"type": String,
-			"required": false
+		msg: {
+			type: String,
+			required: false
 		}
 	});
 	const route = useRoute();

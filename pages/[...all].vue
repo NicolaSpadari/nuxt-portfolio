@@ -6,6 +6,6 @@
 
 <script lang="ts" setup>
 	useHead({
-		"title": "404 - Not Found"
+		title: "404 - Not Found"
 	});
 </script>

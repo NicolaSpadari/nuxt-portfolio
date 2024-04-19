@@ -14,9 +14,9 @@
 
 <script lang="ts" setup>
 	const props = defineProps({
-		"initial": Object,
-		"final": Object,
-		"transition": Object
+		initial: Object,
+		final: Object,
+		transition: Object
 	});
 
 	const show = ref(false);

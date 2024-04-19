@@ -14,10 +14,10 @@
 
 <script lang="ts" setup>
 	const props = defineProps({
-		"initial": Object,
-		"final": Object,
-		"transition": Object,
-		"state": Boolean
+		initial: Object,
+		final: Object,
+		transition: Object,
+		state: Boolean
 	});
 
 	const show = toRef(props, "state");

@@ -70,37 +70,37 @@
 </template>
 
 <script lang="ts" setup>
-	const { "data": competences } = await useFetch("/api/competences", {
-		"headers": useRequestHeaders(["cookie"]) as Record<string, string>
+	const { data: competences } = await useFetch("/api/competences", {
+		headers: useRequestHeaders(["cookie"]) as Record<string, string>
 	});
 
 	const element = ref<any>(null);
 	const activeCompetence = ref<Competence | null>(null);
-	const { "y": height } = useScroll(element);
+	const { y: height } = useScroll(element);
 	const arrived = ref(false);
 	const position = ref(400);
 	const isMobile = useMediaQuery("(max-width: 768px)");
 
-	const { x, y } = useMouse({ "touch": false });
+	const { x, y } = useMouse({ touch: false });
 
 	if (isMobile.value) {
 		position.value = 75;
 	}
 
 	const mobilePStyle = computed(() => ({
-		"transform": `translateY(${arrived.value ? 400 : height.value}px)`
+		transform: `translateY(${arrived.value ? 400 : height.value}px)`
 	}));
 
 	const pStyle = computed(() => ({
-		"transform": `translateX(${arrived.value ? 100 : height.value * 0.25}px) translateY(${arrived.value ? 400 : height.value}px)`
+		transform: `translateX(${arrived.value ? 100 : height.value * 0.25}px) translateY(${arrived.value ? 400 : height.value}px)`
 	}));
 
 	const firstTextEffect = computed(() => ({
-		"transform": `translateX(${x.value / 55}px) translateY(-${y.value / 55}px)`
+		transform: `translateX(${x.value / 55}px) translateY(-${y.value / 55}px)`
 	}));
 
 	const secondTextEffect = computed(() => ({
-		"transform": `translateX(${x.value / 70}px) translateY(-${y.value / 70}px)`
+		transform: `translateX(${x.value / 70}px) translateY(-${y.value / 70}px)`
 	}));
 
 	watch(height, (val) => {
@@ -116,8 +116,8 @@
 	};
 
 	useHead({
-		"meta": [
-			{ "name": "description", "content": "My competences and work experiences" }
+		meta: [
+			{ name: "description", content: "My competences and work experiences" }
 		]
 	});
 </script>

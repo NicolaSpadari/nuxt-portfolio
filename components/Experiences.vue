@@ -43,8 +43,8 @@
 </template>
 
 <script lang="ts" setup>
-	const { "data": experiences } = await useFetch("/api/experiences", {
-		"headers": useRequestHeaders(["cookie"]) as Record<string, string>
+	const { data: experiences } = await useFetch("/api/experiences", {
+		headers: useRequestHeaders(["cookie"]) as Record<string, string>
 	});
 
 	const formatDate = (date: string) => {

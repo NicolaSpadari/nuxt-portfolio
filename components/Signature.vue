@@ -118,8 +118,8 @@
 	const playedOnce = useSessionStorage("playedOnce", false);
 
 	const draw = (progress: number): object => ({
-		"strokeDashoffset": 1 - progress,
-		"visibility": "visible"
+		strokeDashoffset: 1 - progress,
+		visibility: "visible"
 	});
 
 	if (playedOnce.value) {

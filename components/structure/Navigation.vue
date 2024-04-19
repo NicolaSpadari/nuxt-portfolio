@@ -83,8 +83,8 @@
 
 <script lang="ts" setup>
 	const transition = {
-		"duration": 1.5,
-		"easing": "cubic-bezier(0.25, 1, 0.5, 1)"
+		duration: 1.5,
+		easing: "cubic-bezier(0.25, 1, 0.5, 1)"
 	};
 </script>
 

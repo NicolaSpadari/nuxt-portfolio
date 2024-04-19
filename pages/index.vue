@@ -41,18 +41,18 @@
 
 <script lang="ts" setup>
 	const { width } = useWindowSize();
-	const { x, y } = useMouse({ "touch": false });
+	const { x, y } = useMouse({ touch: false });
 
 	const textEffect = computed(() => ({
-		"transform": width.value > 768 ? `translateX(${x.value / 45}px) translateY(-${y.value / 45}px)` : "none"
+		transform: width.value > 768 ? `translateX(${x.value / 45}px) translateY(-${y.value / 45}px)` : "none"
 	}));
 
 	const titleEffect = computed(() => ({
-		"transform": width.value > 768 ? `translateX(${x.value / 100}px) translateY(-${y.value / 100}px)` : "none"
+		transform: width.value > 768 ? `translateX(${x.value / 100}px) translateY(-${y.value / 100}px)` : "none"
 	}));
 
 	const imageEffect = computed(() => ({
-		"transform": width.value > 768 ? `translateX(-${x.value / 50}px) translateY(${y.value / 50}px)` : "none"
+		transform: width.value > 768 ? `translateX(-${x.value / 50}px) translateY(${y.value / 50}px)` : "none"
 	}));
 </script>
 
