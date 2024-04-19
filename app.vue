@@ -1,5 +1,5 @@
 <template>
-	<Disappear
+	<div
 		fixed inset-0 z-100 size-screen flex items-center justify-center bg-dark-800
 		:state="splash"
 		:initial="initialState"
@@ -7,7 +7,7 @@
 		:transition="transition"
 		:exit="finalState"
 	>
-		<Disappear
+		<div
 			w="80%" h="80%" lg="w-60%"
 			:state="splash"
 			:initial="{ opacity: 1, scale: 1 }"
@@ -16,8 +16,8 @@
 			:exit="{ opacity: 0, scale: 0.5 }"
 		>
 			<Signature @ended="handleSplash()" />
-		</Disappear>
-	</Disappear>
+		</div>
+	</div>
 
 	<div v-show="ready">
 		<NuxtLayout>

@@ -2,7 +2,7 @@
 	<div mb-10 overflow-hidden>
 		<div row-gap-10 grid px-4 py-5>
 			<template v-for="(experience, index) in experiences" :key="`experience-${index}`">
-				<Animation
+				<div
 					:initial="{ opacity: 0, y: 25 }"
 					:transition="{ duration: 1, delay: 0.75, easing: 'cubic-bezier(0.25, 1, 0.5, 1)' }"
 					:final="{ opacity: 1, y: 0 }"
@@ -36,7 +36,7 @@
 							{{ exp }}
 						</p>
 					</div>
-				</Animation>
+				</div>
 			</template>
 		</div>
 	</div>

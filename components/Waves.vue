@@ -1,7 +1,7 @@
 <template>
 	<div pointer-events="none" absolute inset-x-0 z-75 uw="z-60">
 		<svg viewBox="0 0 120 28">
-			<Motion
+			<div
 				tag="path"
 				:d="wave"
 				:initial="{ x: 0, y: 15 }"
@@ -9,7 +9,7 @@
 				:transition="wave1"
 				fill-dark-800 transition-colors duration-500
 			/>
-			<Motion
+			<div
 				tag="path"
 				:d="wave"
 				:initial="{ x: '-100%', y: 0 }"
@@ -17,7 +17,7 @@
 				:transition="wave2"
 				fill-dark-800 fill-opacity="!25" transition-colors duration-500
 			/>
-			<Motion
+			<div
 				tag="path"
 				:d="wave"
 				:initial="{ x: 0, y: -20 }"

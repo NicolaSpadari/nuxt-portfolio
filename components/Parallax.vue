@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Animation
+		<div
 			v-for="(image, index) in imageLayers"
 			:key="image.name"
 			absolute size-full
@@ -12,7 +12,7 @@
 			:final="finalState"
 		>
 			<img :src="image.name" size-full :alt="image.name">
-		</Animation>
+		</div>
 	</div>
 </template>
 

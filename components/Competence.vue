@@ -1,7 +1,7 @@
 <template>
 	<div ref="comp" relative aspect-square bg-dark-400 :class="isMobile ? 'border-blue-400/20 border-2 rounded-md' : 'cursor-pointer transform hover:scale-93 transition-transform duration-300 ease-out-expo'">
-		<Presence>
-			<Motion
+		<div>
+			<div
 				:key="String(props.active)"
 				absolute h-full w-full flex items-center justify-center
 				:initial="{ opacity: 0, scale: 0.85 }"
@@ -25,8 +25,8 @@
 						</p>
 					</div>
 				</div>
-			</Motion>
-		</Presence>
+			</div>
+		</div>
 	</div>
 </template>
 

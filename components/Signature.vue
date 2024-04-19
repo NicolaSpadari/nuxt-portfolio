@@ -1,7 +1,7 @@
 <template>
 	<ClientOnly>
 		<svg v-if="!playedOnce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 453.3 179.2" size-full text-gray-50>
-			<Motion
+			<div
 				v-for="(segment, index) in letter1.paths"
 				:key="index"
 				tag="path"
@@ -16,7 +16,7 @@
 				:d="segment.path"
 				:class="segment.class"
 			/>
-			<Motion
+			<div
 				v-for="(segment, index) in letter2.paths"
 				:key="index"
 				tag="path"
@@ -31,7 +31,7 @@
 				:d="segment.path"
 				:class="segment.class"
 			/>
-			<Motion
+			<div
 				v-for="(segment, index) in letter3.paths"
 				:key="index"
 				tag="path"
@@ -46,7 +46,7 @@
 				:d="segment.path"
 				:class="segment.class"
 			/>
-			<Motion
+			<div
 				v-for="(segment, index) in letter4.paths"
 				:key="index"
 				tag="path"
@@ -61,7 +61,7 @@
 				:d="segment.path"
 				:class="segment.class"
 			/>
-			<Motion
+			<div
 				v-for="(segment, index) in letter5.paths"
 				:key="index"
 				tag="path"
@@ -76,7 +76,7 @@
 				:d="segment.path"
 				:class="segment.class"
 			/>
-			<Motion
+			<div
 				v-for="(segment, index) in letter6.paths"
 				:key="index"
 				tag="path"
@@ -91,7 +91,7 @@
 				:d="segment.path"
 				:class="segment.class"
 			/>
-			<Motion
+			<div
 				v-for="(segment, index) in letter7.paths"
 				:key="index"
 				tag="path"

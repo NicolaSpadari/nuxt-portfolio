@@ -1,5 +1,5 @@
 <template>
-	<Animation
+	<div
 		v-once
 		tag="p"
 		:initial="{ opacity: 0, y: -200 }"
@@ -9,7 +9,7 @@
 		glitch
 	>
 		{{ props.msg ? props.msg : routeName }}
-	</Animation>
+	</div>
 </template>
 
 <script lang="ts" setup>

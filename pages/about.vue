@@ -7,7 +7,7 @@
 				<div mt-40 crate lg="mt-60" uw="mt-80">
 					<div pointer-events-none :style="isMobile ? '' : pStyle">
 						<div overflow-hidden :style="firstTextEffect">
-							<Animation
+							<div
 								tag="p"
 								:initial="{ opacity: 0, y: 100 }"
 								:transition="{ duration: 1, delay: 0.75, easing: 'cubic-bezier(0.25, 1, 0.5, 1)' }"
@@ -15,10 +15,10 @@
 								text="2.5rem" lg="text-8xl pl-0" xxl="text-10rem" pl-3 text-light-50 font-bold uppercase transition-colors duration-500
 							>
 								I'm a frontend
-							</Animation>
+							</div>
 						</div>
 						<div overflow-hidden :style="secondTextEffect">
-							<Animation
+							<div
 								tag="p"
 								:initial="{ opacity: 0, y: 100 }"
 								:transition="{ duration: 1, delay: 1, easing: 'cubic-bezier(0.25, 1, 0.5, 1)' }"
@@ -26,19 +26,19 @@
 								text="2.5rem" lg="text-8xl pl-0" xxl="text-10rem" pl-3 text-light-50 font-bold uppercase transition-colors duration-500
 							>
 								engineer
-							</Animation>
+							</div>
 						</div>
 					</div>
 
 					<div :style="isMobile ? '' : mobilePStyle">
-						<Animation
+						<div
 							:initial="{ opacity: 0 }"
 							:transition="{ duration: 1, delay: 1.5, easing: 'cubic-bezier(0.25, 1, 0.5, 1)' }"
 							:final="{ opacity: 1 }"
 							lg="justify-end mt-0" xl="max-w-full" mt-20 max-w-5xl flex animate-bounce justify-center
 						>
 							<img src="@/assets/images/arrow.svg" h-15 lg="h-32">
-						</Animation>
+						</div>
 					</div>
 
 					<div grid grid-cols-1 mt-15vh lg="grid-cols-2 mt-80vh">

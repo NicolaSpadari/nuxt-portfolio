@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div fixed left-8 top-8 z-80 lg="left-16 top-16">
-			<Animation
+			<div
 				v-if="$route.path === '/'"
 				:initial="{ opacity: 0, y: -100, x: -100 }"
 				:transition="transition"
@@ -10,14 +10,14 @@
 				<NuxtLink to="/projects" glow text-sm tracking-wider font-heading uppercase>
 					Projects
 				</NuxtLink>
-			</Animation>
+			</div>
 			<NuxtLink v-else to="/projects" glow text-sm tracking-wider font-heading uppercase>
 				Projects
 			</NuxtLink>
 		</div>
 
 		<div fixed right-8 top-8 z-80 lg="right-16 top-16">
-			<Animation
+			<div
 				v-if="$route.path === '/'"
 				:initial="{ opacity: 0, y: -100, x: 100 }"
 				:transition="transition"
@@ -26,15 +26,15 @@
 				<NuxtLink to="/about" glow text-sm tracking-wider font-heading uppercase>
 					About
 				</NuxtLink>
-			</Animation>
+			</div>
 			<NuxtLink v-else to="/about" glow text-sm tracking-wider font-heading uppercase>
 				About
 			</NuxtLink>
 		</div>
 
 		<div fixed bottom-8 z-80 absolute-center-h lg="bottom-16">
-			<Presence>
-				<Motion
+			<div>
+				<div
 					v-if="$route.path !== '/'"
 					:initial="{ y: 100, opacity: 0 }"
 					:animate="{ y: 0, opacity: 1, transition: { duration: 1, delay: 0.5 } }"
@@ -43,12 +43,12 @@
 					<NuxtLink to="/">
 						<img src="@/assets/images/signature-static.svg" hover="opacity-70" w-25 transition-opacity duration-500>
 					</NuxtLink>
-				</Motion>
-			</Presence>
+				</div>
+			</div>
 		</div>
 
 		<div fixed bottom-8 left-8 z-80 lg="left-16 bottom-16">
-			<Animation
+			<div
 				v-if="$route.path === '/'"
 				:initial="{ opacity: 0, y: -100, x: -100 }"
 				:transition="transition"
@@ -57,14 +57,14 @@
 				<NuxtLink to="https://github.com/NicolaSpadari" :external="true" glow text-sm tracking-wider font-heading uppercase target="_blank">
 					GitHub
 				</NuxtLink>
-			</Animation>
+			</div>
 			<NuxtLink v-else to="https://github.com/NicolaSpadari" :external="true" glow text-sm tracking-wider font-heading uppercase target="_blank">
 				GitHub
 			</NuxtLink>
 		</div>
 
 		<div fixed bottom-8 right-8 z-80 lg="right-16 bottom-16">
-			<Animation
+			<div
 				v-if="$route.path === '/'"
 				:initial="{ opacity: 0, y: -100, x: 100 }"
 				:transition="transition"
@@ -73,7 +73,7 @@
 				<NuxtLink to="https://www.linkedin.com/in/nicolaspadari" :external="true" glow text-sm tracking-wider font-heading uppercase target="_blank">
 					LinkedIn
 				</NuxtLink>
-			</Animation>
+			</div>
 			<NuxtLink v-else to="https://www.linkedin.com/in/nicolaspadari" :external="true" glow text-sm tracking-wider font-heading uppercase target="_blank">
 				LinkedIn
 			</NuxtLink>

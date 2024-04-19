@@ -15,7 +15,7 @@
 		<div pointer-events-none absolute inset-0 h-full w-full flex justify-center :style="textEffect">
 			<div my-auto overflow-y-hidden>
 				<div lg="flex-row space-x-12" bordered flex flex-col select-none justify-center text-light-50 font-extralight tracking-widest font-heading uppercase transition-colors duration-500>
-					<Animation
+					<div
 						tag="p"
 						:initial="{ y: width > 768 ? 200 : -200 }"
 						:transition="{ delay: 1.25, duration: 1 }"
@@ -23,8 +23,8 @@
 						text-center lg="text-left"
 					>
 						<span class="clamp">Nicola</span>
-					</Animation>
-					<Animation
+					</div>
+					<div
 						tag="p"
 						:initial="{ y: width > 768 ? -200 : 200 }"
 						:transition="{ delay: 1.25, duration: 1 }"
@@ -32,7 +32,7 @@
 						text-center lg="text-left"
 					>
 						<span class="clamp">Spadari</span>
-					</Animation>
+					</div>
 				</div>
 			</div>
 		</div>
