@@ -1,20 +1,6 @@
 <template>
-	<div
-		fixed inset-0 z-100 size-screen flex items-center justify-center bg-dark-800
-		:state="splash"
-		:initial="initialState"
-		:animate="initialState"
-		:transition="transition"
-		:exit="finalState"
-	>
-		<div
-			w="80%" h="80%" lg="w-60%"
-			:state="splash"
-			:initial="{ opacity: 1, scale: 1 }"
-			:animate="{ opacity: 1, scale: 1 }"
-			:transition="{ duration: 1, easing: 'cubic-bezier(0.65, 0, 0.35, 1)' }"
-			:exit="{ opacity: 0, scale: 0.5 }"
-		>
+	<div class="overlay" fixed inset-0 z-100 size-screen flex items-center justify-center bg-dark-800>
+		<div class="splash" w="80%" h="80%" lg="w-60%">
 			<Signature @ended="handleSplash()" />
 		</div>
 	</div>
@@ -27,27 +13,25 @@
 </template>
 
 <script lang="ts" setup>
+	const { $gsap } = useNuxtApp();
 	const ready = ref(false);
 	const splash = ref(true);
 
-	const initialState = {
-		visibility: "visible",
-		opacity: 1
-	};
-
-	const transition = {
-		duration: 0.7,
-		delay: 0.65,
-		easing: "cubic-bezier(0.22, 1, 0.36, 1)"
-	};
-
-	const finalState = {
-		visibility: "hidden",
-		opacity: 0
-	};
-
 	const handleSplash = () => {
 		splash.value = false;
+
+		$gsap.to(".splash", {
+			opacity: 0,
+			scale: 0.5,
+			duration: 0.7,
+			delay: 0.65,
+			ease: "cubic-bezier(0.22, 1, 0.36, 1)"
+		});
+		$gsap.to(".overlay", {
+			opacity: 0,
+			pointerEvents: "none",
+			delay: 1
+		});
 
 		useTimeoutFn(() => {
 			ready.value = true;

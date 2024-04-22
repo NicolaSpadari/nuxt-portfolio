@@ -1,80 +1,31 @@
 <template>
 	<div>
-		<div fixed left-8 top-8 z-80 lg="left-16 top-16">
-			<div
-				v-if="$route.path === '/'"
-				:initial="{ opacity: 0, y: -100, x: -100 }"
-				:transition="transition"
-				:final="{ opacity: 1, y: 0, x: 0 }"
-			>
-				<NuxtLink to="/projects" glow text-sm tracking-wider font-heading uppercase>
-					Projects
-				</NuxtLink>
-			</div>
-			<NuxtLink v-else to="/projects" glow text-sm tracking-wider font-heading uppercase>
+		<div class="corner-1" fixed left-8 top-8 z-80 lg="left-16 top-16">
+			<NuxtLink to="/projects" glow text-sm tracking-wider font-heading uppercase>
 				Projects
 			</NuxtLink>
 		</div>
 
-		<div fixed right-8 top-8 z-80 lg="right-16 top-16">
-			<div
-				v-if="$route.path === '/'"
-				:initial="{ opacity: 0, y: -100, x: 100 }"
-				:transition="transition"
-				:final="{ opacity: 1, y: 0, x: 0 }"
-			>
-				<NuxtLink to="/about" glow text-sm tracking-wider font-heading uppercase>
-					About
-				</NuxtLink>
-			</div>
-			<NuxtLink v-else to="/about" glow text-sm tracking-wider font-heading uppercase>
+		<div class="corner-2" fixed right-8 top-8 z-80 lg="right-16 top-16">
+			<NuxtLink to="/about" glow text-sm tracking-wider font-heading uppercase>
 				About
 			</NuxtLink>
 		</div>
 
-		<div fixed bottom-8 z-80 absolute-center-h lg="bottom-16">
-			<div>
-				<div
-					v-if="$route.path !== '/'"
-					:initial="{ y: 100, opacity: 0 }"
-					:animate="{ y: 0, opacity: 1, transition: { duration: 1, delay: 0.5 } }"
-					:exit="{ opacity: 0 }"
-				>
-					<NuxtLink to="/">
-						<img src="@/assets/images/signature-static.svg" hover="opacity-70" w-25 transition-opacity duration-500>
-					</NuxtLink>
-				</div>
-			</div>
+		<div v-if="$route.path !== '/'" fixed bottom-8 z-80 absolute-center-h lg="bottom-16">
+			<NuxtLink to="/">
+				<img src="@/assets/images/signature-static.svg" hover="opacity-70" w-25 transition-opacity duration-500>
+			</NuxtLink>
 		</div>
 
-		<div fixed bottom-8 left-8 z-80 lg="left-16 bottom-16">
-			<div
-				v-if="$route.path === '/'"
-				:initial="{ opacity: 0, y: -100, x: -100 }"
-				:transition="transition"
-				:final="{ opacity: 1, y: 0, x: 0 }"
-			>
-				<NuxtLink to="https://github.com/NicolaSpadari" :external="true" glow text-sm tracking-wider font-heading uppercase target="_blank">
-					GitHub
-				</NuxtLink>
-			</div>
-			<NuxtLink v-else to="https://github.com/NicolaSpadari" :external="true" glow text-sm tracking-wider font-heading uppercase target="_blank">
+		<div class="corner-3" fixed bottom-8 left-8 z-80 lg="left-16 bottom-16">
+			<NuxtLink to="https://github.com/NicolaSpadari" :external="true" glow text-sm tracking-wider font-heading uppercase target="_blank">
 				GitHub
 			</NuxtLink>
 		</div>
 
-		<div fixed bottom-8 right-8 z-80 lg="right-16 bottom-16">
-			<div
-				v-if="$route.path === '/'"
-				:initial="{ opacity: 0, y: -100, x: 100 }"
-				:transition="transition"
-				:final="{ opacity: 1, y: 0, x: 0 }"
-			>
-				<NuxtLink to="https://www.linkedin.com/in/nicolaspadari" :external="true" glow text-sm tracking-wider font-heading uppercase target="_blank">
-					LinkedIn
-				</NuxtLink>
-			</div>
-			<NuxtLink v-else to="https://www.linkedin.com/in/nicolaspadari" :external="true" glow text-sm tracking-wider font-heading uppercase target="_blank">
+		<div class="corner-4" fixed bottom-8 right-8 z-80 lg="right-16 bottom-16">
+			<NuxtLink to="https://www.linkedin.com/in/nicolaspadari" :external="true" glow text-sm tracking-wider font-heading uppercase target="_blank">
 				LinkedIn
 			</NuxtLink>
 		</div>
@@ -82,14 +33,61 @@
 </template>
 
 <script lang="ts" setup>
-	const transition = {
-		duration: 1.5,
-		easing: "cubic-bezier(0.25, 1, 0.5, 1)"
-	};
+	const { $gsap } = useNuxtApp();
+
+	onMounted(() => {
+		$gsap.fromTo(".corner-1", {
+			translateX: -100,
+			translateY: -100,
+			opacity: 0
+		}, {
+			translateX: 0,
+			translateY: 0,
+			duration: 2,
+			opacity: 1,
+			delay: 3.5
+		});
+
+		$gsap.fromTo(".corner-2", {
+			translateX: 100,
+			translateY: -100,
+			opacity: 0
+		}, {
+			translateX: 0,
+			translateY: 0,
+			duration: 2,
+			opacity: 1,
+			delay: 3.5
+		});
+
+		$gsap.fromTo(".corner-3", {
+			translateX: -100,
+			translateY: 100,
+			opacity: 0
+		}, {
+			translateX: 0,
+			translateY: 0,
+			duration: 2,
+			opacity: 1,
+			delay: 3.5
+		});
+
+		$gsap.fromTo(".corner-4", {
+			translateX: 100,
+			translateY: 100,
+			opacity: 0
+		}, {
+			translateX: 0,
+			translateY: 0,
+			duration: 2,
+			opacity: 1,
+			delay: 3.5
+		});
+	});
 </script>
 
 <style lang="scss" scoped>
-    .router-link-exact-active {
+.router-link-exact-active {
 	@apply invisible pointer-events-none;
 }
 

@@ -1,143 +1,54 @@
 <template>
-	<ClientOnly>
-		<svg v-if="!playedOnce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 453.3 179.2" size-full text-gray-50>
-			<div
-				v-for="(segment, index) in letter1.paths"
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 453.3 179.2" size-full text-gray-50>
+		<g v-for="letter in letters" :key="letter.letter" class="letter">
+			<path
+				v-for="(segment, index) in letter.paths"
 				:key="index"
-				tag="path"
-				:initial="{ visibility: 'hidden' }"
-				:animate="draw(1)"
-				:transition="{
-					duration: 0.015,
-					delay: (index * 0.015),
-					easing: 'linear',
-				}"
-				:pathLength="1"
 				:d="segment.path"
+				class="path"
 				:class="segment.class"
 			/>
-			<div
-				v-for="(segment, index) in letter2.paths"
-				:key="index"
-				tag="path"
-				:initial="{ visibility: 'hidden' }"
-				:animate="draw(1)"
-				:transition="{
-					duration: 0.01,
-					delay: 0.5 + (index * 0.01),
-					easing: 'linear',
-				}"
-				:pathLength="1"
-				:d="segment.path"
-				:class="segment.class"
-			/>
-			<div
-				v-for="(segment, index) in letter3.paths"
-				:key="index"
-				tag="path"
-				:initial="{ visibility: 'hidden' }"
-				:animate="draw(1)"
-				:transition="{
-					duration: 0.01,
-					delay: 0.8 + (index * 0.01),
-					easing: 'linear',
-				}"
-				:pathLength="1"
-				:d="segment.path"
-				:class="segment.class"
-			/>
-			<div
-				v-for="(segment, index) in letter4.paths"
-				:key="index"
-				tag="path"
-				:initial="{ visibility: 'hidden' }"
-				:animate="draw(1)"
-				:transition="{
-					duration: 0.01,
-					delay: 1 + (index * 0.01),
-					easing: 'linear',
-				}"
-				:pathLength="1"
-				:d="segment.path"
-				:class="segment.class"
-			/>
-			<div
-				v-for="(segment, index) in letter5.paths"
-				:key="index"
-				tag="path"
-				:initial="{ visibility: 'hidden' }"
-				:animate="draw(1)"
-				:transition="{
-					duration: 0.01,
-					delay: 1.3 + (index * 0.01),
-					easing: 'linear',
-				}"
-				:pathLength="1"
-				:d="segment.path"
-				:class="segment.class"
-			/>
-			<div
-				v-for="(segment, index) in letter6.paths"
-				:key="index"
-				tag="path"
-				:initial="{ visibility: 'hidden' }"
-				:animate="draw(1)"
-				:transition="{
-					duration: 0.01,
-					delay: 1.5 + (index * 0.01),
-					easing: 'linear',
-				}"
-				:pathLength="1"
-				:d="segment.path"
-				:class="segment.class"
-			/>
-			<div
-				v-for="(segment, index) in letter7.paths"
-				:key="index"
-				tag="path"
-				:initial="{ visibility: 'hidden' }"
-				:animate="draw(1)"
-				:transition="{
-					duration: 0.015,
-					delay: 1.65 + (index * 0.015),
-					easing: 'linear',
-				}"
-				:pathLength="1"
-				:d="segment.path"
-				:class="segment.class"
-			/>
-		</svg>
-	</ClientOnly>
+		</g>
+	</svg>
 </template>
 
 <script lang="ts" setup>
-	const emits = defineEmits(["ended"]);
+	const emit = defineEmits(["ended"]);
 
-	const { letter1, letter2, letter3, letter4, letter5, letter6, letter7 } = useLetter();
-
+	const { $gsap } = useNuxtApp();
+	const letters = useSignature();
 	const playedOnce = useSessionStorage("playedOnce", false);
 
-	const draw = (progress: number): object => ({
-		strokeDashoffset: 1 - progress,
-		visibility: "visible"
+	const tl = $gsap.timeline();
+
+	onMounted(() => {
+		if (playedOnce) {
+			emit("ended");
+		} else {
+			const paths = document.querySelectorAll(".path");
+
+			paths.forEach((path) => {
+				tl.fromTo(path, {
+					strokeDasharray: 100,
+					strokeDashoffset: 100
+				}, {
+					strokeDasharray: 0,
+					strokeDashoffset: 0,
+					duration: 0.01
+				});
+			});
+
+			useTimeoutFn(() => {
+				playedOnce.value = true;
+				emit("ended");
+			}, 2000);
+		}
 	});
-
-	if (playedOnce.value) {
-		emits("ended");
-	} else {
-		setTimeout(() => {
-			emits("ended");
-		}, 3000);
-
-		setTimeout(() => {
-			playedOnce.value = true;
-		}, 4000);
-	}
 </script>
 
 <style scoped>
-	path {
-	@apply fill-none stroke-current stroke-cap-round stroke-dash-1 stroke-offset-1;
+path {
+	@apply fill-none stroke-current stroke-cap-round;
 }
 .st0 {
 	stroke-width: 3;
