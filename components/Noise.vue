@@ -8,6 +8,6 @@
 
 <style scoped>
 .after-bg-noise:after {
-	background-image: url("@/assets/images/noise.jpg");
+	background-image: url("/images/noise.jpg");
 }
 </style>

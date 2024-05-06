@@ -1,15 +1,9 @@
 <template>
-	<div
-		v-once
-		tag="p"
-		:initial="{ opacity: 0, y: -200 }"
-		:transition="{ duration: 1, delay: 0.15, easing: 'cubic-bezier(0.25, 1, 0.5, 1)' }"
-		:final="{ opacity: 1, y: 0 }"
-		:data-text="routeName"
-		glitch
-	>
-		{{ props.msg ? props.msg : routeName }}
-	</div>
+	<p class="glitch" :data-text="props.msg ? props.msg : routeName">
+		<span class="title">
+			{{ props.msg ? props.msg : routeName }}
+		</span>
+	</p>
 </template>
 
 <script lang="ts" setup>
@@ -19,14 +13,29 @@
 			required: false
 		}
 	});
+
+	const { $gsap } = useNuxtApp();
 	const route = useRoute();
 	const routeName = unref(route.name);
+
+	onMounted(() => {
+		$gsap.fromTo(".title", {
+			opacity: 0,
+			y: -200
+		}, {
+			opacity: 1,
+			y: 0,
+			duration: 1,
+			delay: 3,
+			ease: "power3.inOut"
+		});
+	});
 </script>
 
 <style lang="scss" scoped>
-    [glitch] {
+.glitch {
 	transform: scaleX(var(--scale, 1));
-	animation: glitch-p 11s infinite alternate;
+	animation: glitch-p 7.5s infinite alternate;
 	@apply text-teal-300 fixed text-3xl lg:text-7xl select-none top-5 lg:top-8 z-10 font-heading uppercase font-bold;
 
 	&:before,

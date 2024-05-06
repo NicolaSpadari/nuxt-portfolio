@@ -1,5 +1,5 @@
 <template>
-	<div pointer-events="none" absolute inset-x-0 z-75 uw="z-60">
+	<div pointer-events="none" fixed inset-x-0 z-75 uw="z-60">
 		<svg viewBox="0 0 120 28">
 			<path :d="wave" class="wave-1" fill-dark-800 />
 			<path :d="wave" class="wave-2" fill-dark-800 fill-opacity="!35" />

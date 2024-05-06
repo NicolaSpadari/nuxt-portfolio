@@ -2,7 +2,7 @@
 	<div>
 		<StructureNavigation />
 
-		<div relative>
+		<div class="view">
 			<slot />
 		</div>
 

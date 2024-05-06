@@ -1,23 +1,13 @@
 <template>
 	<div>
-		<div
-			v-for="(image, index) in imageLayers"
-			:key="image.name"
-			absolute size-full
-			:initial="initialState"
-			:transition="{
-				...transition,
-				delay: 2 + 0.08 * (1 + index),
-			}"
-			:final="finalState"
-		>
-			<img :src="image.name" size-full :alt="image.name">
-		</div>
+		<NuxtImg v-for="image in layers" :key="image.name" class="fragment" :src="image.name" size-full absolute :alt="image.name" />
 	</div>
 </template>
 
 <script lang="ts" setup>
-	const imageLayers = [
+	const { $gsap } = useNuxtApp();
+
+	const layers = [
 		{ strength: 30, name: "/images/parallax/layer-circle.svg" },
 		{ strength: 10, name: "/images/parallax/layer-bg.svg" },
 		{ strength: 15, name: "/images/parallax/layer-dark-bg.svg" },
@@ -29,18 +19,16 @@
 		{ strength: 55, name: "/images/parallax/layer-line.svg" }
 	];
 
-	const initialState = {
-		opacity: 0,
-		y: -150
-	};
-
-	const finalState = {
-		opacity: 1,
-		y: 0
-	};
-
-	const transition = {
-		duration: 1.25,
-		easing: "cubic-bezier(0.22, 1, 0.36, 1)"
-	};
+	onMounted(() => {
+		$gsap.fromTo(".fragment", {
+			yPercent: -25,
+			opacity: 0
+		}, {
+			yPercent: 0,
+			opacity: 1,
+			duration: 1.25,
+			delay: 2,
+			stagger: 0.15
+		});
+	});
 </script>

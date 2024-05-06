@@ -13,7 +13,7 @@ import {
 import { presetScrollbar } from "unocss-preset-scrollbar";
 
 export default defineConfig({
-	safelist: ["overflow-hidden", "bg-dark-800", "font-text"],
+	safelist: ["custom-scrollbar", "bg-dark-800", "font-text", "overflow-x-hidden"],
 	shortcuts: [
 		["crate", "mx-auto max-w-7xl px-4 lg:px-8 sm:px-6"],
 		["flex-center", "flex justify-center items-center"],
@@ -21,7 +21,8 @@ export default defineConfig({
 		["size-screen", "w-screen h-screen"],
 		["absolute-center-h", "left-50% transform -translate-x-50%"],
 		["absolute-center-v", "top-50% transform -translate-y-50%"],
-		["grab", "cursor-grab active:cursor-grabbing"]
+		["grab", "cursor-grab active:cursor-grabbing"],
+		["custom-scrollbar", "scrollbar scrollbar-track-color-dark-800 scrollbar-thumb-color-dark-600"]
 	],
 	presets: [
 		presetUno(),

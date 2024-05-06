@@ -9,6 +9,7 @@ export default defineNuxtConfig({
 		"@vueuse/nuxt",
 		"@unocss/nuxt",
 		"@hypernym/nuxt-gsap",
+		"@nuxt/image",
 		"nuxt-gtag"
 	],
 	app: {
@@ -28,12 +29,18 @@ export default defineNuxtConfig({
 				{ children: "JavaScript is required to run this project" }
 			],
 			bodyAttrs: {
-				class: ["overflow-hidden", "bg-dark-800", "font-text"]
+				class: ["custom-scrollbar", "overflow-x-hidden", "bg-dark-800", "font-text"]
 			}
 		},
 		pageTransition: {
 			name: "page",
 			mode: "out-in"
+		}
+	},
+	gsap: {
+		composables: true,
+		extraPlugins: {
+			scrollTrigger: true
 		}
 	},
 	supabase: {
@@ -46,14 +53,10 @@ export default defineNuxtConfig({
 		"@unocss/reset/tailwind.css",
 		"swiper/css"
 	],
-	nitro: {
-		prerender: {
-			routes: ["/"]
+	vue: {
+		compilerOptions: {
+			isCustomElement: (tag: string) => tag.startsWith("i-")
 		}
-	},
-	routeRules: {
-		"/projects": { swr: 43200 },
-		"/about": { swr: 43200 }
 	},
 	sourcemap: {
 		server: true,

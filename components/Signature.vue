@@ -15,11 +15,10 @@
 <script lang="ts" setup>
 	const emit = defineEmits(["ended"]);
 
-	const { $gsap } = useNuxtApp();
 	const letters = useSignature();
 	const playedOnce = useSessionStorage("playedOnce", false);
 
-	const tl = $gsap.timeline();
+	const tl = useGsap.timeline();
 
 	onMounted(() => {
 		if (playedOnce) {
@@ -28,10 +27,7 @@
 			const paths = document.querySelectorAll(".path");
 
 			paths.forEach((path) => {
-				tl.fromTo(path, {
-					strokeDasharray: 100,
-					strokeDashoffset: 100
-				}, {
+				tl.to(path, {
 					strokeDasharray: 0,
 					strokeDashoffset: 0,
 					duration: 0.01
@@ -47,7 +43,7 @@
 </script>
 
 <style scoped>
-path {
+.path {
 	@apply fill-none stroke-current stroke-cap-round;
 }
 .st0 {
