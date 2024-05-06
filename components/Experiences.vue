@@ -32,8 +32,8 @@
 								</template>
 							</p>
 						</div>
-						<p v-for="(exp, expIndex) in experience.details" :key="expIndex" mt-2 text-sm text-gray-400>
-							{{ exp }}
+						<p mt-2 text-sm text-gray-400>
+							{{ experience.details }}
 						</p>
 					</div>
 				</Animation>
